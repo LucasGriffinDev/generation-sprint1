@@ -1,0 +1,29 @@
+nav {
+  background-color: #ae8282;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+nav li {
+  list-style-type: none;
+}
+
+form {
+  padding: 10px;
+  text-align: center;
+}
+
+input {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+body {
+  background-image: url('https://images.unsplash.com/photo-1682687219573-3fd75f982217?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1975&q=80');
+}

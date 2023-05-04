@@ -7,15 +7,30 @@
   </head>
   <body>
     <div class="container">
-      <div class="header">
-        <h1>Home</h1>
-      </div>
-      <div class="content">
-        <p>Home page</p>
-      </div>
-      <div class="footer">
-        <p>Footer</p>
-      </div>
+      <nav>
+        <ul>
+          <li><a>Home</a></li>
+          <li><a>Add</a></li>
+          <li><a>Search</a></li>
+        </ul>
+      </nav>
+      <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" />
+        <label for="description">Description</label>
+        <input type="text" id="description" name="description" />
+        <label for="assigned">Assigned To</label>
+        <input type="text" id="assigned" name="assigned" />
+        <label for="due">Due Date</label>
+        <input type="date" id="due" name="due" />
+        <label for="status">Status</label>
+        <select id="status" name="status">
+          <option value="incomplete">Incomplete</option>
+          <option value="in-progress">In Progress</option>
+          <option value="complete">Complete</option>
+        </select>
+        <input type="submit" value="Add Task" />
+      </form>
     </div>
   </body>
 </html>
