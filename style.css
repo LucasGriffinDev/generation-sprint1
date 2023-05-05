@@ -54,6 +54,7 @@ form {
 /* new task modal */
 
 .modal {
+  width: 40%;
   display: none;
   position: fixed;
   z-index: 1;
