@@ -52,3 +52,8 @@ form {
   padding: 2em 0;
 }
 /* drop down due date selector */
+
+#description {
+  width: 100%;
+  height: 6em;
+}
