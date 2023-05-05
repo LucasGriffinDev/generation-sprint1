@@ -1,14 +1,25 @@
-const coll = document.getElementsByClassName('collapsible');
-let i;
+// get the modal element
+var modal = document.getElementById('myModal');
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener('click', function () {
-    this.classList.toggle('active');
-    var content = this.nextElementSibling;
-    if (content.style.display === 'block') {
-      content.style.display = 'none';
-    } else {
-      content.style.display = 'block';
-    }
-  });
-}
+// get the button that opens the modal
+var btn = document.querySelector('#modal-open-button');
+
+// get the <span> element that closes the modal
+var span = document.getElementsByClassName('close')[0];
+
+// when the user clicks on the button, open the modal
+btn.onclick = function () {
+  modal.style.display = 'block';
+};
+
+// when the user clicks on <span> (x), close the modal
+span.onclick = function () {
+  modal.style.display = 'none';
+};
+
+// when the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+};
