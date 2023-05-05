@@ -30,68 +30,51 @@
         mobile view version is  2 collumns, with name and due date on left, assigned to and status on right, description below
 
      -->
-    <table>
-      <tr>
-        <th>status</th>
-        <th>name</th>
-        <th>assigned to</th>
-        <th>due date</th>
-        <th>description</th>
-      </tr>
-      <tr>
-        <td>
-          <p>status</p>
-        </td>
-        <td>name</td>
-        <td>assigned to</td>
-        <td>
-          <p></p>
-          due date
-        </td>
-        <td>description</td>
-      </tr>
-      <tr>
-        <td>status</td>
-        <td>name</td>
-        <td>assigned to</td>
-        <td>due date</td>
-        <td>description</td>
-      </tr>
-      <tr>
-        <td>status</td>
-        <td>name</td>
-        <td>assigned to</td>
-        <td>due date</td>
-        <td>description</td>
-      </tr>
-      <tr>
-        <td>status</td>
-        <td>name</td>
-        <td>assigned to</td>
-        <td>due date</td>
-        <td>description</td>
-      </tr>
-      <tr>
-        <td>status</td>
-        <td>name</td>
-        <td>assigned to</td>
-        <td>due date</td>
-        <td>description</td>
-      </tr>
-    </table>
-    <form>
-      <label for="name">name</label>
-      <input type="text" id="name" name="name" />
-      <label for="assigned to">assigned to</label>
-      <input type="text" id="assigned to" name="assigned to" />
-      <label for="due date">due date</label>
-      <input type="text" id="due date" name="due date" />
-      <label for="description">description</label>
-      <input type="text" id="description" name="description" />
-      <label for="status">status</label>
-      <input type="text" id="status" name="status" />
-      <input type="submit" value="Submit" />
-    </form>
+    <div class="container">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="col-1">status</th>
+            <th class="col-1">name</th>
+            <th class="col-1">assigned to</th>
+            <th class="col-1">due date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>completed</td>
+            <td>wireframe</td>
+            <td>rowan</td>
+            <td>
+              <label for="date">Select a date:</label>
+              <input type="date" id="date" name="date" />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" class="description">
+              description 1
+              <button class="btn btn-secondary">edit</button>
+              <button class="btn btn-warning">delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="container">
+      <form>
+        <label for="name">name</label>
+        <input type="text" id="name" name="name" />
+        <label for="assigned to">assigned to</label>
+        <input type="text" id="assigned to" name="assigned to" />
+        <label for="date">Select a date:</label>
+        <input type="date" id="date" name="date" />
+        <label for="description">description</label>
+        <input type="text" id="description" name="description" />
+        <label for="status">status</label>
+        <input type="text" id="status" name="status" />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
   </body>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
