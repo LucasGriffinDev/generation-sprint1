@@ -15,9 +15,9 @@
   <header>
     <nav class="navbar">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="taskform.html">search bar</a></li>
-        <li><a href="tasklist.html">new task</a></li>
+        <li><a href="index.html">logo</a></li>
+        <li><a href="task.html">seach</a></li>
+        <li><a href="about.html">About</a></li>
       </ul>
     </nav>
   </header>
@@ -64,41 +64,49 @@
         </tbody>
       </table>
     </div>
-    <button id="modal-open-button">New Task</button>
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <div class="modal-container">
-          <div class="container">
-            <form>
-              <div class="row">
-                <div class="col-2">
-                  <label for="name">name</label>
-                  <input type="text" id="name" name="name" />
+
+    <!-- new task modal -->
+    <div class="container">
+      <button id="modal-open-button" class="btn btn-success">New Task</button>
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div class="modal-container">
+            <div class="container">
+              <form>
+                <div class="row">
+                  <div class="col-2">
+                    <label for="name">name</label>
+                    <input type="text" id="name" name="name" />
+                  </div>
+                  <div class="col-2">
+                    <label for="assigned to">assigned to</label>
+                    <input type="text" id="assigned to" name="assigned to" />
+                  </div>
+                  <div class="col-2">
+                    <label for="date">Select a date:</label>
+                    <input type="date" id="date" name="date" />
+                  </div>
+                  <div class="col-2">
+                    <label for="status">status</label>
+                    <input type="text" id="status" name="status" />
+                  </div>
+                  <div class="col-2">
+                    <input type="submit" value="Submit" />
+                  </div>
                 </div>
-                <div class="col-2">
-                  <label for="assigned to">assigned to</label>
-                  <input type="text" id="assigned to" name="assigned to" />
+                <div class="row">
+                  <div class="col-12">
+                    <label for="description">description</label>
+                    <input
+                      type="textarea"
+                      id="description"
+                      name="description"
+                    />
+                  </div>
                 </div>
-                <div class="col-2">
-                  <label for="date">Select a date:</label>
-                  <input type="date" id="date" name="date" />
-                </div>
-                <div class="col-2">
-                  <label for="status">status</label>
-                  <input type="text" id="status" name="status" />
-                </div>
-                <div class="col-2">
-                  <input type="submit" value="Submit" />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <label for="description">description</label>
-                  <input type="textarea" id="description" name="description" />
-                </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>
