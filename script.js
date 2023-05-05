@@ -1,5 +1,6 @@
 // get the modal element
 var modal = document.getElementById('myModal');
+let tasts = [];
 
 // get the button that opens the modal
 var btn = document.querySelector('#modal-open-button');
