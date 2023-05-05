@@ -1,102 +1,22 @@
-body {
-  background-color: #588c7e;
+.navbar {
+  background-color: #0d6efd;
 }
 
-table {
-  /* border-collapse: collapse; */
-  width: 100%;
-  color: #588c7e;
-  font-family: monospace;
-  font-size: 25px;
+.navbar-brand {
+  margin-right: 1rem;
+}
+
+.nav-link {
+  color: white;
+}
+
+.nav-link:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.table thead th {
+  background-color: #f8f9fa;
+  border-color: #dee2e6;
   text-align: left;
-  width: 80%;
-  margin: 0 auto;
-}
-
-table,
-th,
-td {
-  border: 1px solid black;
-  padding: 5px;
-}
-
-td {
-  text-align: center;
-  vertical-align: middle;
-  width: 25%;
-  height: 100px;
-  background-color: #f2f2f2;
-  border: 1px solid #ccc;
-}
-
-nav {
-  width: 100%;
-  height: 150px;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  text-align: center;
-  vertical-align: middle;
-  margin: 2em auto;
-  padding: 2em 2em 2em 0;
-}
-
-nav img {
-  max-height: 100%;
-  margin-left: 2em;
-}
-
-nav li {
-  display: inline-block;
-  margin: 0 1em;
-}
-
-form {
-  width: 100%;
-  height: 50px;
-  background-color: #f2f2f2;
-  border: 1px solid #ccc;
-  text-align: center;
-  vertical-align: middle;
-  margin: 2em auto;
-  padding: 2em 0;
-}
-/* new task modal */
-
-.modal {
-  width: 40%;
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-  background-color: white;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-.modal-container {
-  /* any additional styling for the modal container goes here */
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
   font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
 }
