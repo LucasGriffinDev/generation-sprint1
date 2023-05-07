@@ -109,6 +109,72 @@
         </tbody>
       </table>
     </div>
+    <div class="container">
+      <div class="taskitem">
+        <div class="d-flex justify-content-between">
+          <div class="fa fa-check fa-2x"></div>
+          <div>Task Name</div>
+          <div id="hdrAssigned">Assigned</div>
+          <div id="hdrDate">Date</div>
+          <button type="button" class="btn btn-light">
+            <div class="fa fa-caret-down fa-2x"></div>
+          </button>
+        </div>
+
+        <div class="row">
+          <div class="col-2 col-md-1">
+            <div class="row">Name:</div>
+            <div class="row">Due:</div>
+          </div>
+          <div class="col-4 col-md-3 col-lg-2">
+            <div class="row">
+              <input type="text" id="taskname" name="taskname" />
+            </div>
+            <div class="row">
+              <input type="   date" id="duedate" name="duedate" />
+            </div>
+          </div>
+          <div class="col-2 col-md-1">
+            <div class="row">Assigned:</div>
+            <div class="row"><label for="status">Status:</label></div>
+          </div>
+          <div class="col-4 col-md-3 col-lg-2">
+            <div class="row">
+              <input type="text" id="assigned" name="assigned" />
+            </div>
+            <div class="row">
+              <select name="status" id="status">
+                <option value="todo">Todo</option>
+                <option value="inprogress">In Progress</option>
+                <option value="review">R eview</option>
+                <option value="done">Done</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <label for="w3review">Description:</label>
+            </div>
+            <div class="row justify-content-center">
+              <textarea
+                id="w3review"
+                name="w3review"
+                rows="4"
+                cols="10"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-warning mx-3">Edit</button>
+            <button type="button" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- New Task Modal -->
     <div
