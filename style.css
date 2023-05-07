@@ -3,8 +3,11 @@ body {
   height: 100%;
 }
 
-.navbar {
-  background-color: #0d6efd;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
 }
 
 .navbar-brand {
@@ -39,5 +42,5 @@ body {
 }
 
 .logo {
-  width: 100px;
+  width: 140px;
 }
