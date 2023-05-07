@@ -1,3 +1,8 @@
+html,
+body {
+  height: 100%;
+}
+
 .navbar {
   background-color: #0d6efd;
 }
@@ -19,4 +24,16 @@
   border-color: #dee2e6;
   text-align: left;
   font-weight: bold;
+}
+
+.background {
+  background: linear-gradient(
+    to bottom,
+    #0072c6 0%,
+    #4a90e2 50%,
+    #005eb8 75%,
+    #001a33 100%
+  );
+
+  background-attachment: fixed;
 }
