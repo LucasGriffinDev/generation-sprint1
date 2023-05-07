@@ -37,3 +37,7 @@ body {
 
   background-attachment: fixed;
 }
+
+.logo {
+  width: 100px;
+}
