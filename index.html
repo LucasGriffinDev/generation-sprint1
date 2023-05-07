@@ -20,7 +20,7 @@
       <div class="container">
         <nav>
           <!-- Navigation -->
-          <div class="nav-logo">
+          <div class="nav-logo m">
             <img src="assets/task-manager-pro.png" class="logo" />
           </div>
           <div>
@@ -55,124 +55,241 @@
       <!-- New Task Button -->
       <div class="d-flex justify-content-center mt-2">
         <button
-          id="modal-open-button"
-          class="btn btn-success col-1"
+          class="btn btn-success modal-open-button"
           data-bs-toggle="modal"
           data-bs-target="#myModal"
         >
           New Task
         </button>
       </div>
-
-      <!-- Task Table -->
-      <table class="table table-bordered bg-light mt-2">
-        <thead>
-          <tr>
-            <th class="col-2">Status</th>
-            <th class="col-2">Name</th>
-            <th class="col-2">Assigned to</th>
-            <th class="col-2">Due date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <select class="form-select bg-success" id="status-select">
-                <option value="completed" class="bg-success">Completed</option>
-                <option value="in progress" class="bg-warning">
-                  In progress
-                </option>
-                <option value="not started" class="bg-danger">
-                  Not started
-                </option>
-              </select>
-            </td>
-            <td>Wireframe</td>
-            <td>
-              <select class="form-select">
-                <option value="completed">Rowan</option>
-                <option value="in progress">Matt</option>
-                <option value="not started">Lucas</option>
-              </select>
-            </td>
-            <td>
-              <p>22/05/2023</p>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="4" class="description">
-              <span>Finish the wireframe</span>
-              <button class="btn btn-secondary float-end">Edit</button>
-              <button class="btn btn-warning float-end me-2">Delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
     </div>
+    <!-- task list -->
     <div class="container">
-      <div class="taskitem">
-        <div class="d-flex justify-content-between">
-          <div class="fa fa-check fa-2x"></div>
-          <div>Task Name</div>
-          <div id="hdrAssigned">Assigned</div>
-          <div id="hdrDate">Date</div>
-          <button type="button" class="btn btn-light">
-            <div class="fa fa-caret-down fa-2x"></div>
-          </button>
-        </div>
+      <!-- Task Table -->
 
-        <div class="row">
-          <div class="col-2 col-md-1">
-            <div class="row">Name:</div>
-            <div class="row">Due:</div>
-          </div>
-          <div class="col-4 col-md-3 col-lg-2">
-            <div class="row">
-              <input type="text" id="taskname" name="taskname" />
-            </div>
-            <div class="row">
-              <input type="   date" id="duedate" name="duedate" />
-            </div>
-          </div>
-          <div class="col-2 col-md-1">
-            <div class="row">Assigned:</div>
-            <div class="row"><label for="status">Status:</label></div>
-          </div>
-          <div class="col-4 col-md-3 col-lg-2">
-            <div class="row">
-              <input type="text" id="assigned" name="assigned" />
-            </div>
-            <div class="row">
-              <select name="status" id="status">
-                <option value="todo">Todo</option>
-                <option value="inprogress">In Progress</option>
-                <option value="review">R eview</option>
-                <option value="done">Done</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="row">
-              <label for="w3review">Description:</label>
-            </div>
-            <div class="row justify-content-center">
-              <textarea
-                id="w3review"
-                name="w3review"
-                rows="4"
-                cols="10"
-              ></textarea>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="d-flex justify-content-center">
-            <button type="button" class="btn btn-warning mx-3">Edit</button>
-            <button type="button" class="btn btn-danger">Delete</button>
-          </div>
-        </div>
+      <!-- task 1 -->
+      <div class="table-responsive">
+        <table class="table table-bordered bg-light mt-2">
+          <thead>
+            <tr>
+              <th class="col-3">Status</th>
+              <th class="col-3">Name</th>
+              <th class="col-3">Assigned to</th>
+              <th class="col-2">Due date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="bg-success text-white text-center rounded-2 p-1">
+                  Completed
+                </div>
+              </td>
+              <td>Wireframe</td>
+              <td>
+                <div value="completed">Rowan</div>
+              </td>
+              <td>
+                <p>22/05/2023</p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3" class="description">
+                <span>Finish the wireframe</span>
+              </td>
+              <td>
+                <button class="btn btn-secondary float-end mx-2 modal-open-button"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal"
+                >Edit</button>
+
+                  Edit
+                </button>
+                <button class="btn btn-warning float-end">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- task 2 -->
+      <div class="table-responsive">
+        <table class="table table-bordered bg-light mt-2">
+          <thead>
+            <tr>
+              <th class="col-3">Status</th>
+              <th class="col-3">Name</th>
+              <th class="col-3">Assigned to</th>
+              <th class="col-2">Due date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="bg-danger text-white text-center rounded-2 p-1">
+                  Not started
+                </div>
+              </td>
+              <td>Over all aesthetic</td>
+              <td>
+                <div value="completed">Matt</div>
+              </td>
+              <td>
+                <p>22/05/2023</p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3" class="description">
+                <span>Design and impliment the overall aesthetic</span>
+              </td>
+              <td>
+                <button class="btn btn-secondary float-end mx-2 modal-open-button"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal"
+                >Edit</button>
+
+                  Edit
+                </button>
+                <button class="btn btn-warning float-end">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- task 3 -->
+      <div class="table-responsive">
+        <table class="table table-bordered bg-light mt-2">
+          <thead>
+            <tr>
+              <th class="col-3">Status</th>
+              <th class="col-3">Name</th>
+              <th class="col-3">Assigned to</th>
+              <th class="col-2">Due date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="bg-warning text-gray text-center rounded-2 p-1">
+                  in progress
+                </div>
+              </td>
+              <td>Navbar</td>
+              <td>
+                <div value="completed">Matt</div>
+              </td>
+              <td>
+                <p>22/05/2023</p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3" class="description">
+                <span>Design and impliment Navbar</span>
+              </td>
+              <td>
+                <button class="btn btn-secondary float-end mx-2 modal-open-button"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal"
+                >Edit</button>
+
+                  Edit
+                </button>
+                <button class="btn btn-warning float-end">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- task 4 -->
+      <div class="table-responsive">
+        <table class="table table-bordered bg-light mt-2">
+          <thead>
+            <tr>
+              <th class="col-3">Status</th>
+              <th class="col-3">Name</th>
+              <th class="col-3">Assigned to</th>
+              <th class="col-2">Due date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="bg-success text-white text-center rounded-2 p-1">
+                  Completed
+                </div>
+              </td>
+              <td>Task list</td>
+              <td>
+                <div value="completed">Rowan</div>
+              </td>
+              <td>
+                <p>22/05/2023</p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3" class="description">
+                <span>write code for task lists</span>
+              </td>
+              <td>
+                <button class="btn btn-secondary float-end mx-2 modal-open-button"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal"
+                >Edit</button>
+
+                  Edit
+                </button>
+                <button class="btn btn-warning float-end">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- task 5 -->
+      <div class="table-responsive">
+        <table class="table table-bordered bg-light mt-2">
+          <thead>
+            <tr>
+              <th class="col-3">Status</th>
+              <th class="col-3">Name</th>
+              <th class="col-3">Assigned to</th>
+              <th class="col-2">Due date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="bg-success text-white text-center rounded-2 p-1">
+                  Completed
+                </div>
+              </td>
+              <td>Task Modal</td>
+              <td>
+                <div value="completed">Lucas</div>
+              </td>
+              <td>
+                <p>22/05/2023</p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3" class="description">
+                <span>Design and implement code for new/edit task modal</span>
+              </td>
+              <td>
+                <button class="btn btn-secondary float-end mx-2 modal-open-button"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal"
+                >Edit</button>
+
+                  Edit
+                </button>
+                <button class="btn btn-warning float-end">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
@@ -184,8 +301,8 @@
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog">
-        <div class="modal-content">
+    <div class="modal-dialog modal-fullscreen-md-down modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
           <!-- Modal Header -->
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">New Task</h5>
@@ -201,38 +318,63 @@
           <div class="modal-body">
             <form>
               <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" id="name" name="name" class="form-control" />
+                <label for="name" class="form-label"
+                  >Name (min 3 characters)</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-control"
+                  required
+                  minlength="3"
+                />
               </div>
               <div class="mb-3">
                 <label for="assigned-to" class="form-label">Assigned to</label>
-                <input
-                  type="text"
-                  id="assigned-to"
-                  name="assigned-to"
-                  class="form-control"
-                />
+                <select class="form-select" required>
+                  <option value="completed">Rowan</option>
+                  <option value="in progress">Matt</option>
+                  <option value="not started">Lucas</option>
+                </select>
               </div>
               <div class="mb-3">
-                <label for="date" class="form-label">Select a date:</label>
-                <input type="date" id="date" name="date" class="form-control" />
+                <label for="date" class="form-label" required
+                  >Select a date:</label
+                >
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  class="form-control"
+                  required
+                />
               </div>
               <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
-                <input
-                  type="text"
-                  id="status"
-                  name="status"
-                  class="form-control"
-                />
+                <select class="form-select bg-success" id="status-select">
+                  <option value="completed" class="bg-success">
+                    Completed
+                  </option>
+                  <option value="in progress" class="bg-warning">
+                    In progress
+                  </option>
+                  <option value="not started" class="bg-danger">
+                    Not started
+                  </option>
+                </select>
               </div>
               <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
+                <label for="description" class="form-label"
+                  >Description (min 8 characters)</label
+                >
                 <textarea
                   id="description"
                   name="description"
                   class="form-control"
                   rows="3"
+                  required
+                  minlength="8"
                 ></textarea>
               </div>
 
