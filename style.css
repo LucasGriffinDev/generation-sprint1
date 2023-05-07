@@ -3,7 +3,7 @@ body {
   height: 100%;
 }
 
-nav {
+.flex-div {
   display: flex;
   justify-content: space-between;
   align-items: center;
