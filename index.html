@@ -86,7 +86,7 @@
               </td>
               <td>Wireframe</td>
               <td>
-                <div value="completed">Rowan</div>
+                <div>Rowan</div>
               </td>
               <td>
                 <p>22/05/2023</p>
@@ -129,7 +129,7 @@
           <tbody>
             <tr>
               <td>
-                <div class="bg-danger text-white text-center rounded-2 p-1">
+                <div class="bg-warning text-gray text-center rounded-2 p-1">
                   IN PROGRESS
                 </div>
               </td>
@@ -178,13 +178,13 @@
           <tbody>
             <tr>
               <td>
-                <div class="bg-warning text-gray text-center rounded-2 p-1">
-                  IN PROGRESS
+                <div class="bg-primary text-white text-center rounded-2 p-1">
+                  REVIEW
                 </div>
               </td>
               <td>Navbar</td>
               <td>
-                <div value="completed">Rowan</div>
+                <div>Rowan</div>
               </td>
               <td>
                 <p>22/05/2023</p>
@@ -227,13 +227,13 @@
           <tbody>
             <tr>
               <td>
-                <div class="bg-primary text-white text-center rounded-2 p-1">
+                <div class="bg-danger text-white text-center rounded-2 p-1">
                   TO DO
                 </div>
               </td>
               <td>Task list</td>
               <td>
-                <div value="completed">Lucas</div>
+                <div>Lucas</div>
               </td>
               <td>
                 <p>22/05/2023</p>
@@ -278,12 +278,12 @@
             <tr>
               <td>
                 <div class="bg-success text-white text-center rounded-2 p-1">
-                  COMPLETED
+                  DONE
                 </div>
               </td>
               <td>Task Modal</td>
               <td>
-                <div value="completed">Lucas</div>
+                <div>Lucas</div>
               </td>
               <td>
                 <p>22/05/2023</p>
@@ -321,7 +321,7 @@
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
-    <div class="modal-dialog modal-fullscreen-md-down modal-fullscreen-sm-down modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
           <!-- Modal Header -->
           <div class="modal-header">
@@ -354,9 +354,9 @@
                 <label for="assigned-to" class="form-label">Assigned to</label>
                 <select class="form-select" required>
                   <option value="" >Select Team Member</option>
-                  <option value="completed">Rowan</option>
-                  <option value="in progress">Matt</option>
-                  <option value="not started">Lucas</option>
+                  <option value="rowan">Rowan</option>
+                  <option value="matt">Matt</option>
+                  <option value="lucas">Lucas</option>
                 </select>
               </div>
               <div class="mb-3">
@@ -373,20 +373,20 @@
               </div>
               <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
-                <select class="form-select" id="status-select" required>
+                <select class="form-select" id="status-select">
                   <option value="" >Select Status</option>
 
                   <option value="completed" class="bg-success">
                     DONE
                   </option>
-                  <option value="completed" class="bg-primary">
-                    TODO
+                  <option value="review" class="bg-primary">
+                    REVIEW
                   </option>
                   <option value="in progress" class="bg-warning">
                     IN PROGRESS
                   </option>
                   <option value="not started" class="bg-danger">
-                    REVIEW
+                    TODO
                   </option>
                 </select>
               </div>
