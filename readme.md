@@ -1,19 +1,15 @@
-# sprint 1: task manager
+sprint 2: add usability to task manager.
 
-## 1. wireframe:
+# form sends data to array.
 
-- wireframe: [link](https://github.com/LucasGriffinDev/generation-sprint1/blob/main/wireframes/mobileconcept2.png)
+# array rendered out for tasks
 
-## 2. Task form:
+# Delete button working.
 
-- inputmodal that fulfills the task form. name, description, assinged to, due date, status.
+# mobile responsiveness.
 
-- input modal also opens from the edit button, of any of the task cards.
+streach goals:
 
-## 3. task component:
+# search bar
 
-- 5 cards, with spesified data: name, description, assinged to, due date, status.
-
-- status option showing the 4 required options: todo, in progress, review, done.
-
-# [live demo](https://lucasgriffindev.github.io/generation-sprint1/)
+# login/sign up: firebase.
