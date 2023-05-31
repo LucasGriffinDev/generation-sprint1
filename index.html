@@ -336,28 +336,34 @@
 
           <!-- Modal Body -->
           <div class="modal-body">
-            <form>
+            <form class="needs-validation" novalidate>
               <div class="mb-3">
                 <label for="name" class="form-label"
-                  >Name (min 3 characters)</label
-                >
+                  >Name</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
                   class="form-control"
                   required
-                  minlength="3"
+                  minlength="9"
+                  autocomplete="off"
                 />
+                <div class="invalid-feedback">
+                  Name must be longer than 8 characters.
+                </div>
               </div>
               <div class="mb-3">
                 <label for="assigned-to" class="form-label">Assigned to</label>
-                <select class="form-select" required>
-                  <option value="" >Select Team Member</option>
+                <select class="form-select" required autocomplete="off">
+                  <option value="">Select Team Member</option>
                   <option value="rowan">Rowan</option>
                   <option value="matt">Matt</option>
                   <option value="lucas">Lucas</option>
                 </select>
+                <div class="invalid-feedback">
+                  Must be assigned to a team member.
+                </div>
               </div>
               <div class="mb-3">
                 <label for="date" class="form-label" required
@@ -369,13 +375,16 @@
                   name="date"
                   class="form-control"
                   required
+                  autocomplete="off"
                 />
+                <div class="invalid-feedback">
+                  A date must be specified.
+                </div>
               </div>
               <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
-                <select class="form-select" id="status-select" required>
+                <select class="form-select" id="status-select" required autocomplete="off">
                   <option value="" >Select Status</option>
-
                   <option value="completed" class="bg-success">
                     DONE
                   </option>
@@ -389,10 +398,13 @@
                     TODO
                   </option>
                 </select>
+                <div class="invalid-feedback">
+                  A status must be chosen.
+                </div>
               </div>
               <div class="mb-3">
                 <label for="description" class="form-label"
-                  >Description (min 8 characters)</label
+                  >Description</label
                 >
                 <textarea
                   id="description"
@@ -400,8 +412,12 @@
                   class="form-control"
                   rows="3"
                   required
-                  minlength="8"
+                  minlength="16"
+                  autocomplete="off"
                 ></textarea>
+                <div class="invalid-feedback">
+                  Description must be longer than 15 characters.
+                </div>
               </div>
 
               <!-- Modal Footer -->
