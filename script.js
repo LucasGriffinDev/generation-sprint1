@@ -41,20 +41,7 @@ taskForm.addEventListener('submit', function (e) {
 
   // re-render tasks
   renderTasks(tasks);
-
-  // close modal
-  console.log(tasks);
 });
-
-//  json obect
-// rowan task
-const taskJSON = {
-  name: 'Task 1',
-  assignedTo: 'John Doe',
-  dueDate: '2021-03-24',
-  status: 'In Progress',
-  description: 'This is a sample task.',
-};
 
 //array of tasks
 
