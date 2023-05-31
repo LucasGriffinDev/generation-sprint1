@@ -1,6 +1,6 @@
 sprint 2: add usability to task manager.
 
-# form sends data to array.
+# form sends data to array. (json)
 
 # array rendered out for tasks
 
