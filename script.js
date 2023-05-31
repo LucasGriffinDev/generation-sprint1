@@ -1,6 +1,7 @@
 const select = document.querySelector('#status-select');
 const taskContainer = document.getElementById('task-container');
 const taskForm = document.querySelector('#task-form');
+const deleteBtn = document.querySelector('.delete-btn');
 
 select.addEventListener('change', () => {
   const selectedOption = select.options[select.selectedIndex];
@@ -18,7 +19,7 @@ taskForm.addEventListener('submit', function (e) {
   let name = document.querySelector('#name').value;
   let assignedTo = document.querySelector('#assigned-to').value;
   let date = document.querySelector('#date').value;
-  let status = document.querySelector('#status').value;
+  let status = document.querySelector('#status-select').value; // note the change here from '#status' to '#status-select'
   let description = document.querySelector('#description').value;
 
   // validate form values here if necessary
@@ -38,7 +39,8 @@ taskForm.addEventListener('submit', function (e) {
   // clear form fields after submit
   taskForm.reset();
 
-  // re-render tasks if necessary
+  // re-render tasks
+  renderTasks(tasks);
 
   // close modal
   console.log(tasks);
@@ -69,7 +71,9 @@ const tasks = [
 //render tasks
 
 const renderTasks = (tasks) => {
-  tasks.forEach((task) => {
+  taskContainer.innerHTML = '';
+
+  tasks.forEach(({ name, assignedTo, dueDate, status, description }) => {
     taskContainer.innerHTML += `
   <div class="table-responsive">
         <table class="table table-bordered bg-light mt-2">
@@ -85,15 +89,15 @@ const renderTasks = (tasks) => {
             <tr>
               <td>
                 <div class="bg-success text-white text-center rounded-2 p-1">
-                  DONE
+                  ${status}
                 </div>
               </td>
-              <td>${task.name}</td>
+              <td>${name}</td>
               <td>
-                <div>Rowan</div>
+                <div>${assignedTo}</div>
               </td>
               <td>
-                <p>22/05/2023</p>
+                <p>${dueDate}</p>
               </td>
             </tr>
             <tr>
@@ -102,7 +106,7 @@ const renderTasks = (tasks) => {
 
               </td>
               <td colspan="2" class="description">
-                <span>Finish the wireframe</span>
+                <span>${description}</span>
               </td>
               <td colspan="1">
                 <button class="btn btn-secondary float-end mx-2 modal-open-button"
@@ -112,7 +116,7 @@ const renderTasks = (tasks) => {
 
                   
                 </button>
-                <button class="btn btn-warning float-end">Delete</button>
+                <button class="btn btn-warning float-end delete-btn" data-task-name="${name}">Delete</button>
               </td>
             </tr>
           </tbody>
@@ -121,6 +125,24 @@ const renderTasks = (tasks) => {
       `;
   });
 };
+
+// add event listener to task container
+taskContainer.addEventListener('click', function (e) {
+  // check if clicked element is a delete button
+  if (e.target.classList.contains('delete-btn')) {
+    // get the task name from the element's dataset
+    const taskName = e.target.dataset.taskName;
+
+    // find the task in the tasks array and remove it
+    let index = tasks.findIndex((task) => task.name === taskName);
+    if (index !== -1) {
+      tasks.splice(index, 1);
+    }
+
+    // re-render tasks
+    renderTasks(tasks);
+  }
+});
 
 renderTasks(tasks);
 
