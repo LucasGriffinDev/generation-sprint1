@@ -1,11 +1,12 @@
 const select = document.querySelector('#status-select');
 select.addEventListener('change', () => {
   const selectedOption = select.options[select.selectedIndex];
-  if (selectedOption.className == 'bg-warning') {
-    select.className = selectedOption.className + ' form-select text-gray';
-  } else {
-    select.className = selectedOption.className + ' form-select text-white';
-  }
+  select.className = selectedOption.className + ' form-select';
+  // if (selectedOption.className == 'bg-warning') {
+  //   select.className = selectedOption.className + ' form-select text-gray';
+  // } else {
+  //   select.className = selectedOption.className + ' form-select text-white';
+  // }
 });
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
