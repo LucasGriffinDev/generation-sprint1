@@ -30,6 +30,19 @@ select.addEventListener('change', () => {
 
 //  json obect
 // rowan task
+submitTask = () => {
+  let taskItem = {
+    name: document.getElementById('name').value,
+    assignedTo: document.getElementById('assigned-select').value,
+    dueDate: document.getElementById('date').value,
+    status: document.getElementById('status-select').value,
+    description: document.getElementById('description').value
+  }
+  // console.log(taskItem)
+  tasks.push(taskItem)
+  console.log(tasks)
+}
+
 const taskJSON = {
   name: 'Task 1',
   assignedTo: 'John Doe',

@@ -336,7 +336,7 @@
 
           <!-- Modal Body -->
           <div class="modal-body">
-            <form class="needs-validation" novalidate>
+            <form class="needs-validation" onsubmit="return false;" novalidate>
               <div class="mb-3">
                 <label for="name" class="form-label"
                   >Name</label>
@@ -355,7 +355,7 @@
               </div>
               <div class="mb-3">
                 <label for="assigned-to" class="form-label">Assigned to</label>
-                <select class="form-select" required autocomplete="off">
+                <select class="form-select" id="assigned-select" required autocomplete="off">
                   <option value="">Select Team Member</option>
                   <option value="rowan">Rowan</option>
                   <option value="matt">Matt</option>
@@ -429,7 +429,7 @@
                 >
                   Close
                 </button>
-                <input type="submit" value="Submit" class="btn btn-primary" />
+                <input type="submit" value="Submit" class="btn btn-primary" onclick="submitTask()" data-bs-dismiss="modal" />
               </div>
             </form>
           </div>
