@@ -1,8 +1,15 @@
+// Selectors for the elements we'll be interacting with
 const select = document.querySelector('#status-select');
 const taskContainer = document.getElementById('task-container');
 const taskForm = document.querySelector('#task-form');
-const deleteBtn = document.querySelector('.delete-btn');
+const modalNameInput = document.querySelector('#name');
+const modalAssignedToInput = document.querySelector('#assigned-to');
+const modalDateInput = document.querySelector('#date');
+const modalStatusSelect = document.querySelector('#status-select');
+const modalDescriptionInput = document.querySelector('#description');
+let currentTaskIndex;
 
+// Event listener for select change
 select.addEventListener('change', () => {
   const selectedOption = select.options[select.selectedIndex];
   if (selectedOption.className == 'bg-warning') {
@@ -12,38 +19,46 @@ select.addEventListener('change', () => {
   }
 });
 
+// Event listener for form submission
 taskForm.addEventListener('submit', function (e) {
-  e.preventDefault(); // prevent form from submitting normally
+  e.preventDefault();
 
-  // get form values
-  let name = document.querySelector('#name').value;
-  let assignedTo = document.querySelector('#assigned-to').value;
-  let date = document.querySelector('#date').value;
-  let status = document.querySelector('#status-select').value; // note the change here from '#status' to '#status-select'
-  let description = document.querySelector('#description').value;
+  let name = modalNameInput.value;
+  let assignedTo = modalAssignedToInput.value;
+  let date = modalDateInput.value;
+  let statusSelected = modalStatusSelect.value;
+  let description = modalDescriptionInput.value;
 
-  // validate form values here if necessary
+  if (currentTaskIndex !== undefined) {
+    // If a task is being edited, update it
+    tasks[currentTaskIndex] = {
+      name: name,
+      assignedTo: assignedTo,
+      dueDate: date,
+      status: statusSelected,
+      description: description,
+    };
 
-  // create new task
-  let newTask = {
-    name: name,
-    assignedTo: assignedTo,
-    dueDate: date,
-    status: status,
-    description: description,
-  };
+    // Clear the currentTaskIndex
+    currentTaskIndex = undefined;
+  } else {
+    // If no task is being edited, create a new one
+    let newTask = {
+      name: name,
+      assignedTo: assignedTo,
+      dueDate: date,
+      status: statusSelected,
+      description: description,
+    };
 
-  // add new task to tasks array
-  tasks.push(newTask);
+    tasks.push(newTask);
+  }
 
-  // clear form fields after submit
   taskForm.reset();
-
-  // re-render tasks
   renderTasks(tasks);
 });
 
-//array of tasks
+// Array of tasks
 
 const tasks = [
   {
@@ -53,9 +68,16 @@ const tasks = [
     status: 'In Progress',
     description: 'This is a sample task.',
   },
+  {
+    name: 'Task 2',
+    assignedTo: 'Jane Doe',
+    dueDate: '2021-01-24',
+    status: 'completed',
+    description: 'This is a sample task.',
+  },
 ];
 
-//render tasks
+// Render tasks
 
 const renderTasks = (tasks) => {
   taskContainer.innerHTML = '';
@@ -96,10 +118,11 @@ const renderTasks = (tasks) => {
                 <span>${description}</span>
               </td>
               <td colspan="1">
-                <button class="btn btn-secondary float-end mx-2 modal-open-button"
-                data-bs-toggle="modal"
-                data-bs-target="#myModal"
-                >Edit</button>
+              <button class="btn btn-secondary float-end mx-2 edit-btn modal-open-button"
+              data-bs-toggle="modal"
+              data-bs-target="#myModal"
+              data-task-name="${name}" <!-- make sure this attribute is correctly assigned -->
+            Edit</button>
 
                   
                 </button>
@@ -113,24 +136,33 @@ const renderTasks = (tasks) => {
   });
 };
 
-// add event listener to task container
+// Event listener for task container
 taskContainer.addEventListener('click', function (e) {
-  // check if clicked element is a delete button
+  // Handle delete
   if (e.target.classList.contains('delete-btn')) {
-    // get the task name from the element's dataset
-    const taskName = e.target.dataset.taskName;
+    let taskName = e.target.dataset.taskName;
 
-    // find the task in the tasks array and remove it
     let index = tasks.findIndex((task) => task.name === taskName);
     if (index !== -1) {
       tasks.splice(index, 1);
     }
+    renderTasks(tasks);
+  }
+  // Handle edit
+  if (e.target.classList.contains('edit-btn')) {
+    const taskName = e.target.dataset.taskName;
+    currentTaskIndex = tasks.findIndex((task) => task.name === taskName);
 
-    // re-render tasks
+    let task = tasks.find((task) => task.name === taskName);
+    if (task) {
+      modalNameInput.value = task.name;
+      modalAssignedToInput.value = task.assignedTo;
+      modalDateInput.value = task.dueDate;
+      modalStatusSelect.value = task.status;
+      modalDescriptionInput.value = task.description;
+    }
     renderTasks(tasks);
   }
 });
 
 renderTasks(tasks);
-
-// delete task
