@@ -1,3 +1,4 @@
+
 // Selectors for the elements we'll be interacting with
 const select = document.querySelector('#status-select');
 const taskContainer = document.getElementById('task-container');
@@ -12,12 +13,14 @@ let currentTaskIndex;
 // Event listener for select change
 select.addEventListener('change', () => {
   const selectedOption = select.options[select.selectedIndex];
-  if (selectedOption.className == 'bg-warning') {
-    select.className = selectedOption.className + ' form-select text-gray';
-  } else {
-    select.className = selectedOption.className + ' form-select text-white';
-  }
+  select.className = selectedOption.className + ' form-select';
+  // if (selectedOption.className == 'bg-warning') {
+  //   select.className = selectedOption.className + ' form-select text-gray';
+  // } else {
+  //   select.className = selectedOption.className + ' form-select text-white';
+  // }
 });
+
 
 // Event listener for form submission
 taskForm.addEventListener('submit', function (e) {
@@ -178,6 +181,7 @@ const renderTasks = (tasks) => {
       </div>
       `;
   });
+
 };
 
 // Event listener for task container
@@ -186,11 +190,12 @@ taskContainer.addEventListener('click', function (e) {
   if (e.target.classList.contains('delete-btn')) {
     let taskName = e.target.dataset.taskName;
 
+
     let index = tasks.findIndex((task) => task.name === taskName);
     if (index !== -1) {
       tasks.splice(index, 1);
     }
-    saveTasks();
+
 
     renderTasks(tasks);
   }

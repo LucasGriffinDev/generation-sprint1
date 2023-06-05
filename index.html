@@ -58,6 +58,7 @@
           class="btn btn-success modal-open-button"
           data-bs-toggle="modal"
           data-bs-target="#myModal"
+          data-edit = ""
         >
           New Task
         </button>
@@ -66,6 +67,7 @@
     <!-- task list -->
     <div class="container" id="task-container">
       <!-- Task Table -->
+=
     </div>
 
     <!-- New Task Modal -->
@@ -82,7 +84,7 @@
         <div class="modal-content">
           <!-- Modal Header -->
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Task</h5>
+            <h5 class="modal-title" id="exampleModalLabel">New Task</h5>
             <button
               type="button"
               class="btn-close"
@@ -93,21 +95,29 @@
 
           <!-- Modal Body -->
           <div class="modal-body">
-            <form id="task-form">
+
+            <form class="needs-validation" onsubmit="return false;" novalidate>
               <div class="mb-3">
                 <label for="name" class="form-label"
-                  >Name (min 8 characters)</label
-                >
+                  >Name</label>
+
                 <input
                   type="text"
                   id="name"
                   name="name"
                   class="form-control"
                   required
-                  minlength="8"
+
+                  minlength="9"
+                  autocomplete="off"
+
                 />
+                <div class="invalid-feedback">
+                  Name must be longer than 8 characters.
+                </div>
               </div>
               <div class="mb-3">
+
                 <label for="assigned-to" class="form-label"
                   >Assigned to (min 8 characters)</label
                 >
@@ -119,6 +129,10 @@
                   required
                   minlength="8"
                 />
+              <div class="invalid-feedback">
+                  Must be assigned to a team member.
+                </div>
+
               </div>
               <div class="mb-3">
                 <label for="date" class="form-label" required
@@ -130,30 +144,38 @@
                   name="date"
                   class="form-control"
                   required
+                  autocomplete="off"
                 />
+                <div class="invalid-feedback">
+                  A date must be specified.
+                </div>
               </div>
               <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
-                <select
-                  class="form-select"
-                  id="status-select"
-                  name="status"
-                  required
-                >
-                  <option value="">Select Status</option>
 
-                  <option value="COMPLETED" class="bg-success">
+                <select class="form-select" id="status-select" required autocomplete="off">
+                  <option value="" >Select Status</option>
+                  <option value="COMPLETED" class="tra-success">
                     COMPLETED
                   </option>
-                  <option value="REVIEW" class="bg-primary">REVIEW</option>
-                  <option value="IN PROGRESS" class="bg-warning">
+                  <option value="REVIEW" class="tra-primary">
+                    REVIEW
+                  </option>
+                  <option value="IN PROGRESS" class="tra-warning">
                     IN PROGRESS
                   </option>
-                  <option value="NOT STARTED" class="bg-danger">TODO</option>
+                  <option value="NOT STARTED" class="tra-danger">
+                    TODO
+                  </option>
+
                 </select>
+                <div class="invalid-feedback">
+                  A status must be chosen.
+                </div>
               </div>
               <div class="mb-3">
                 <label for="description" class="form-label"
+
                   >Description (min 15 characters)</label
                 >
                 <textarea
@@ -162,8 +184,13 @@
                   class="form-control"
                   rows="3"
                   required
-                  minlength="15"
+                  minlength="16"
+                  autocomplete="off"
+
                 ></textarea>
+                <div class="invalid-feedback">
+                  Description must be longer than 15 characters.
+                </div>
               </div>
 
               <!-- Modal Footer -->
@@ -175,7 +202,7 @@
                 >
                   Close
                 </button>
-                <input type="submit" value="Submit" class="btn btn-primary" />
+                <input type="submit" value="Submit" class="btn btn-primary" onclick="submitTask()" data-bs-dismiss="modal" />
               </div>
             </form>
           </div>
