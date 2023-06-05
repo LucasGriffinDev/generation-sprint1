@@ -17,31 +17,32 @@
   <body class="background">
     <!-- Header -->
     <header>
-      <div class="container">
-        <nav>
-          <!-- Navigation -->
-          <div class="nav-logo m">
-            <img src="assets/task-manager-pro.png" class="logo" />
-          </div>
-          <div>
-            <div class="nav-links my-3">
+      <div class="container-fluid">
+        <nav class="navbar navbar-dark bg-dark">
+          <div class="container-fluid">
+            <div
+              class="d-flex justify-content-between align-items-center w-100"
+            >
+              <h2 class="text-light">Task Manager Pro</h2>
               <div>
-                <a href="login.html" target="_blank" class="btn btn-success"
+                <input
+                  type="text"
+                  class="form-control d-inline-block w-auto"
+                  placeholder="Search task"
+                />
+
+                <a
+                  href="login.html"
+                  target="_blank"
+                  class="btn btn-success ms-2"
                   >Login</a
                 >
                 <a
                   href="login.html"
                   target="_blank"
-                  class="btn btn-success mx-2"
+                  class="btn btn-success ms-2"
                   >Sign Up</a
                 >
-              </div>
-            </div>
-
-            <!-- Content -->
-            <div class="content">
-                <input type="text" placeholder="Search task" class="searchbar" />
-                <button type="submit"><img src="Images/search.png" alt="" /></button>
               </div>
             </div>
           </div>
@@ -64,259 +65,9 @@
       </div>
     </div>
     <!-- task list -->
-    <div class="container">
+    <div class="container" id="task-container">
       <!-- Task Table -->
-
-      <!-- task 1 -->
-      <div class="table-responsive">
-        <table class="table table-bordered bg-light mt-2">
-          <thead>
-            <tr>
-              <th class="col-1">Status</th>
-              <th class="col-2">Name</th>
-              <th class="col-2">Assigned to</th>
-              <th class="col-1">Due date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="bg-success text-white text-center rounded-2 p-1">
-                  DONE
-                </div>
-              </td>
-              <td>Wireframe</td>
-              <td>
-                <div>Rowan</div>
-              </td>
-              <td>
-                <p>22/05/2023</p>
-              </td>
-            </tr>
-            <tr>
-              <td class="fw-bold">
-                Description:
-
-              </td>
-              <td colspan="2" class="description">
-                <span>Finish the wireframe</span>
-              </td>
-              <td colspan="1">
-                <button class="btn btn-secondary float-end mx-2 modal-open-button"
-                data-bs-toggle="modal"
-                data-bs-target="#myModal"
-                data-edit = "0"
-                >Edit</button>
-
-                  
-                </button>
-                <button class="btn btn-warning float-end">Delete</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- task 2 -->
-      <div class="table-responsive">
-        <table class="table table-bordered bg-light mt-2">
-          <thead>
-            <tr>
-              <th class="col-1">Status</th>
-              <th class="col-2">Name</th>
-              <th class="col-2">Assigned to</th>
-              <th class="col-1">Due date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="bg-warning text-gray text-center rounded-2 p-1">
-                  IN PROGRESS
-                </div>
-              </td>
-              <td>Over all aesthetic</td>
-              <td>
-                <div>Matt</div>
-              </td>
-              <td>
-                <p>22/05/2023</p>
-              </td>
-            </tr>
-            <tr>
-              <td class="fw-bold">
-                Description:
-
-              </td>
-              <td colspan="2" class="description">
-                <span>Design and impliment the overall aesthetic	</span>
-              </td>
-              <td colspan="1">
-                <button class="btn btn-secondary float-end mx-2 modal-open-button"
-                data-bs-toggle="modal"
-                data-bs-target="#myModal"
-                data-edit = "1"
-                >Edit</button>
-
-                  
-                </button>
-                <button class="btn btn-warning float-end">Delete</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- task 3 -->
-      <div class="table-responsive">
-        <table class="table table-bordered bg-light mt-2">
-          <thead>
-            <tr>
-              <th class="col-1">Status</th>
-              <th class="col-2">Name</th>
-              <th class="col-2">Assigned to</th>
-              <th class="col-1">Due date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="bg-primary text-white text-center rounded-2 p-1">
-                  REVIEW
-                </div>
-              </td>
-              <td>Navbar</td>
-              <td>
-                <div>Rowan</div>
-              </td>
-              <td>
-                <p>22/05/2023</p>
-              </td>
-            </tr>
-            <tr>
-              <td class="fw-bold">
-                Description:
-
-              </td>
-              <td colspan="2" class="description">
-                <span>Design and impliment Navbar	</span>
-              </td>
-              <td colspan="1">
-                <button class="btn btn-secondary float-end mx-2 modal-open-button"
-                data-bs-toggle="modal"
-                data-bs-target="#myModal"
-                data-edit = "2"
-                >Edit</button>
-
-                  
-                </button>
-                <button class="btn btn-warning float-end">Delete</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- task 4 -->
-      <div class="table-responsive">
-        <table class="table table-bordered bg-light mt-2">
-          <thead>
-            <tr>
-              <th class="col-1">Status</th>
-              <th class="col-2">Name</th>
-              <th class="col-2">Assigned to</th>
-              <th class="col-1">Due date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="bg-danger text-white text-center rounded-2 p-1">
-                  TO DO
-                </div>
-              </td>
-              <td>Task list</td>
-              <td>
-                <div>Lucas</div>
-              </td>
-              <td>
-                <p>22/05/2023</p>
-              </td>
-            </tr>
-            <tr>
-              <td class="fw-bold">
-                Description:
-
-              </td>
-              <td colspan="2" class="description">
-                <span>write code for task lists</span>
-              </td>
-              <td colspan="1">
-                <button class="btn btn-secondary float-end mx-2 modal-open-button"
-                data-bs-toggle="modal"
-                data-bs-target="#myModal"
-                data-edit = "3"
-                >Edit</button>
-
-                  
-                </button>
-                <button class="btn btn-warning float-end">Delete</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- task 5 -->
-      <div class="table-responsive">
-        <table class="table table-bordered bg-light mt-2">
-          <thead>
-            <tr>
-              <tr>
-                <th class="col-1">Status</th>
-                <th class="col-2">Name</th>
-                <th class="col-2">Assigned to</th>
-                <th class="col-1">Due date</th>
-              </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="bg-success text-white text-center rounded-2 p-1">
-                  DONE
-                </div>
-              </td>
-              <td>Task Modal</td>
-              <td>
-                <div>Lucas</div>
-              </td>
-              <td>
-                <p>22/05/2023</p>
-              </td>
-            </tr>
-            <tr>
-              <td class="fw-bold">
-                Description:
-
-              </td>
-              <td colspan="2" class="description">
-                <span>Design and implement code for new/edit task modal	</span>
-              </td>
-              <td colspan="1">
-                <button class="btn btn-secondary float-end mx-2 modal-open-button"
-                data-bs-toggle="modal"
-                data-bs-target="#myModal"
-                data-edit = "4"
-                >Edit</button>
-
-                  
-                </button>
-                <button class="btn btn-warning float-end">Delete</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+=
     </div>
 
     <!-- New Task Modal -->
@@ -327,8 +78,10 @@
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
-    <div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
+      <div
+        class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered modal-dialog-scrollable"
+      >
+        <div class="modal-content">
           <!-- Modal Header -->
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">New Task</h5>
@@ -342,34 +95,44 @@
 
           <!-- Modal Body -->
           <div class="modal-body">
+
             <form class="needs-validation" onsubmit="return false;" novalidate>
               <div class="mb-3">
                 <label for="name" class="form-label"
                   >Name</label>
+
                 <input
                   type="text"
                   id="name"
                   name="name"
                   class="form-control"
                   required
+
                   minlength="9"
                   autocomplete="off"
+
                 />
                 <div class="invalid-feedback">
                   Name must be longer than 8 characters.
                 </div>
               </div>
               <div class="mb-3">
-                <label for="assigned-to" class="form-label">Assigned to</label>
-                <select class="form-select" id="assigned-select" required autocomplete="off">
-                  <option value="">Select Team Member</option>
-                  <option value="Rowan">Rowan</option>
-                  <option value="Matt">Matt</option>
-                  <option value="Lucas">Lucas</option>
-                </select>
-                <div class="invalid-feedback">
+
+                <label for="assigned-to" class="form-label"
+                  >Assigned to (min 8 characters)</label
+                >
+                <input
+                  type="text"
+                  id="assigned-to"
+                  name="assigned-to"
+                  class="form-control"
+                  required
+                  minlength="8"
+                />
+              <div class="invalid-feedback">
                   Must be assigned to a team member.
                 </div>
+
               </div>
               <div class="mb-3">
                 <label for="date" class="form-label" required
@@ -389,20 +152,22 @@
               </div>
               <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
+
                 <select class="form-select" id="status-select" required autocomplete="off">
                   <option value="" >Select Status</option>
-                  <option value="done" class="tra-success">
-                    DONE
+                  <option value="COMPLETED" class="tra-success">
+                    COMPLETED
                   </option>
-                  <option value="review" class="tra-primary">
+                  <option value="REVIEW" class="tra-primary">
                     REVIEW
                   </option>
-                  <option value="in progress" class="tra-warning">
+                  <option value="IN PROGRESS" class="tra-warning">
                     IN PROGRESS
                   </option>
-                  <option value="todo" class="tra-danger">
+                  <option value="NOT STARTED" class="tra-danger">
                     TODO
                   </option>
+
                 </select>
                 <div class="invalid-feedback">
                   A status must be chosen.
@@ -410,7 +175,8 @@
               </div>
               <div class="mb-3">
                 <label for="description" class="form-label"
-                  >Description</label
+
+                  >Description (min 15 characters)</label
                 >
                 <textarea
                   id="description"
@@ -420,6 +186,7 @@
                   required
                   minlength="16"
                   autocomplete="off"
+
                 ></textarea>
                 <div class="invalid-feedback">
                   Description must be longer than 15 characters.
