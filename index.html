@@ -57,7 +57,6 @@
           class="btn btn-success modal-open-button"
           data-bs-toggle="modal"
           data-bs-target="#myModal"
-          data-edit = ""
         >
           New Task
         </button>
@@ -66,6 +65,10 @@
     <!-- task list -->
     <div class="container">
       <!-- Task Table -->
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
 
       <!-- task 1 -->
       <div class="table-responsive">
@@ -317,6 +320,11 @@
           </tbody>
         </table>
       </div>
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> parent of 9861ba9 (Merge pull request #8 from LucasGriffinDev/rowan-sprint2)
+>>>>>>> Stashed changes
     </div>
 
     <!-- New Task Modal -->
@@ -331,7 +339,7 @@
       <div class="modal-content">
           <!-- Modal Header -->
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">New Task</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Task</h5>
             <button
               type="button"
               class="btn-close"
@@ -342,24 +350,48 @@
 
           <!-- Modal Body -->
           <div class="modal-body">
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
             <form class="needs-validation" onsubmit="return false;" novalidate>
               <div class="mb-3">
                 <label for="name" class="form-label"
                   >Name</label>
+<<<<<<< Updated upstream
+=======
+=======
+            <form id="task-form">
+              <div class="mb-3">
+                <label for="name" class="form-label"
+                  >Name (min 8 characters)</label
+                >
+>>>>>>> parent of 9861ba9 (Merge pull request #8 from LucasGriffinDev/rowan-sprint2)
+>>>>>>> Stashed changes
                 <input
                   type="text"
                   id="name"
                   name="name"
                   class="form-control"
                   required
+<<<<<<< Updated upstream
                   minlength="9"
                   autocomplete="off"
+=======
+<<<<<<< HEAD
+                  minlength="9"
+                  autocomplete="off"
+=======
+                  minlength="8"
+>>>>>>> parent of 9861ba9 (Merge pull request #8 from LucasGriffinDev/rowan-sprint2)
+>>>>>>> Stashed changes
                 />
-                <div class="invalid-feedback">
-                  Name must be longer than 8 characters.
-                </div>
               </div>
               <div class="mb-3">
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
                 <label for="assigned-to" class="form-label">Assigned to</label>
                 <select class="form-select" id="assigned-select" required autocomplete="off">
                   <option value="">Select Team Member</option>
@@ -370,6 +402,22 @@
                 <div class="invalid-feedback">
                   Must be assigned to a team member.
                 </div>
+<<<<<<< Updated upstream
+=======
+=======
+                <label for="assigned-to" class="form-label"
+                  >Assigned to (min 8 characters)</label
+                >
+                <input
+                  type="text"
+                  id="assigned-to"
+                  name="assigned-to"
+                  class="form-control"
+                  required
+                  minlength="8"
+                />
+>>>>>>> parent of 9861ba9 (Merge pull request #8 from LucasGriffinDev/rowan-sprint2)
+>>>>>>> Stashed changes
               </div>
               <div class="mb-3">
                 <label for="date" class="form-label" required
@@ -381,14 +429,14 @@
                   name="date"
                   class="form-control"
                   required
-                  autocomplete="off"
                 />
-                <div class="invalid-feedback">
-                  A date must be specified.
-                </div>
               </div>
               <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
                 <select class="form-select" id="status-select" required autocomplete="off">
                   <option value="" >Select Status</option>
                   <option value="done" class="tra-success">
@@ -403,14 +451,40 @@
                   <option value="todo" class="tra-danger">
                     TODO
                   </option>
+<<<<<<< Updated upstream
+=======
+=======
+                <select
+                  class="form-select"
+                  id="status-select"
+                  name="status"
+                  required
+                >
+                  <option value="">Select Status</option>
+
+                  <option value="COMPLETED" class="bg-success">
+                    COMPLETED
+                  </option>
+                  <option value="REVIEW" class="bg-primary">REVIEW</option>
+                  <option value="IN PROGRESS" class="bg-warning">
+                    IN PROGRESS
+                  </option>
+                  <option value="NOT STARTED" class="bg-danger">TODO</option>
+>>>>>>> parent of 9861ba9 (Merge pull request #8 from LucasGriffinDev/rowan-sprint2)
+>>>>>>> Stashed changes
                 </select>
-                <div class="invalid-feedback">
-                  A status must be chosen.
-                </div>
               </div>
               <div class="mb-3">
                 <label for="description" class="form-label"
+<<<<<<< Updated upstream
                   >Description</label
+=======
+<<<<<<< HEAD
+                  >Description</label
+=======
+                  >Description (min 15 characters)</label
+>>>>>>> parent of 9861ba9 (Merge pull request #8 from LucasGriffinDev/rowan-sprint2)
+>>>>>>> Stashed changes
                 >
                 <textarea
                   id="description"
@@ -418,12 +492,16 @@
                   class="form-control"
                   rows="3"
                   required
+<<<<<<< HEAD
                   minlength="16"
                   autocomplete="off"
+<<<<<<< Updated upstream
+=======
+=======
+                  minlength="15"
+>>>>>>> parent of 9861ba9 (Merge pull request #8 from LucasGriffinDev/rowan-sprint2)
+>>>>>>> Stashed changes
                 ></textarea>
-                <div class="invalid-feedback">
-                  Description must be longer than 15 characters.
-                </div>
               </div>
 
               <!-- Modal Footer -->
@@ -435,7 +513,7 @@
                 >
                   Close
                 </button>
-                <input type="submit" value="Submit" class="btn btn-primary" onclick="submitTask()" data-bs-dismiss="modal" />
+                <input type="submit" value="Submit" class="btn btn-primary" />
               </div>
             </form>
           </div>
