@@ -1,3 +1,19 @@
+// Customising modal contents
+var exampleModal = document.getElementById('myModal')
+exampleModal.addEventListener('show.bs.modal', function (event) {
+  let taskNum = event.relatedTarget.getAttribute('data-edit')
+
+  if(taskNum.length > 0){
+    myModal.querySelector('.modal-title').textContent = 'Edit Task'
+    myModal.querySelector('#name').value = tasks[taskNum].name
+    myModal.querySelector('#assigned-select').value = tasks[taskNum].assignedTo
+    myModal.querySelector('#date').value = tasks[taskNum].dueDate
+    myModal.querySelector('#status-select').value = tasks[taskNum].status
+    myModal.querySelector('#status-select').dispatchEvent(new Event('change'))
+    myModal.querySelector('#description').value = tasks[taskNum].description
+  }
+})
+
 const select = document.querySelector('#status-select');
 select.addEventListener('change', () => {
   const selectedOption = select.options[select.selectedIndex];
@@ -55,11 +71,39 @@ const taskJSON = {
 
 const tasks = [
   {
-    name: 'Task 1',
-    assignedTo: 'John Doe',
-    dueDate: '2021-03-24',
-    status: 'In Progress',
-    description: 'This is a sample task.',
+    name: 'Wireframe',
+    assignedTo: 'Rowan',
+    dueDate: '2023-05-22',
+    status: 'done',
+    description: 'Finish the wireframe.',
+  },
+  {
+    name: 'Overall aesthetic',
+    assignedTo: 'Matt',
+    dueDate: '2023-05-22',
+    status: 'in progress',
+    description: 'Design and implement the overall aesthetic',
+  },
+  {
+    name: 'Navbar',
+    assignedTo: 'Rowan',
+    dueDate: '2023-05-22',
+    status: 'review',
+    description: 'design and implement navbar',
+  },
+  {
+    name: 'Task list',
+    assignedTo: 'Lucas',
+    dueDate: '2023-05-22',
+    status: 'todo',
+    description: 'write code for task lists',
+  },
+  {
+    name: 'Task modal',
+    assignedTo: 'Lucas',
+    dueDate: '2023-05-22',
+    status: 'done',
+    description: 'Design and implement code for new/edit task modal',
   },
 ];
 
