@@ -17,36 +17,24 @@
   <body class="background">
     <!-- Header -->
     <header>
-      <div class="container">
-        <nav>
-          <!-- Navigation -->
-          <div class="nav-logo m">
-            <img src="assets/task-manager-pro.png" class="logo" />
-          </div>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid justify-content-between">
+          <h2 class="navbar-brand">Task Manager Pro</h2>
           <div>
-            <div class="nav-links my-3">
-              <div>
-                <a href="login.html" target="_blank" class="btn btn-success"
-                  >Login</a
-                >
-                <a
-                  href="login.html"
-                  target="_blank"
-                  class="btn btn-success mx-2"
-                  >Sign Up</a
-                >
-              </div>
-            </div>
-
-            <!-- Content -->
-            <div class="content">
-                <input type="text" placeholder="Search task" class="searchbar" />
-                <button type="submit"><img src="Images/search.png" alt="" /></button>
-              </div>
-            </div>
+            <input
+              type="text"
+              class="form-control d-inline-block w-auto me-2"
+              placeholder="Search task"
+            />
+            <a href="login.html" target="_blank" class="btn btn-success me-2"
+              >Login</a
+            >
+            <a href="login.html" target="_blank" class="btn btn-success"
+              >Sign Up</a
+            >
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
     </header>
 
     <!-- Main Content -->
@@ -65,7 +53,6 @@
     <!-- task list -->
     <div class="container" id="task-container">
       <!-- Task Table -->
-
     </div>
 
     <!-- New Task Modal -->
@@ -76,8 +63,10 @@
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
-    <div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
+      <div
+        class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered modal-dialog-scrollable"
+      >
+        <div class="modal-content">
           <!-- Modal Header -->
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Task</h5>
@@ -102,12 +91,13 @@
                   name="name"
                   class="form-control"
                   required
-                  
                   minlength="8"
                 />
               </div>
               <div class="mb-3">
-                <label for="assigned-to" class="form-label">Assigned to (min 8 characters)</label>
+                <label for="assigned-to" class="form-label"
+                  >Assigned to (min 8 characters)</label
+                >
                 <input
                   type="text"
                   id="assigned-to"
@@ -131,21 +121,22 @@
               </div>
               <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
-                <select class="form-select" id="status-select" name="status" required>
-                  <option value="" >Select Status</option>
+                <select
+                  class="form-select"
+                  id="status-select"
+                  name="status"
+                  required
+                >
+                  <option value="">Select Status</option>
 
                   <option value="COMPLETED" class="bg-success">
                     COMPLETED
                   </option>
-                  <option value="REVIEW" class="bg-primary">
-                    REVIEW
-                  </option>
+                  <option value="REVIEW" class="bg-primary">REVIEW</option>
                   <option value="IN PROGRESS" class="bg-warning">
                     IN PROGRESS
                   </option>
-                  <option value="NOT STARTED" class="bg-danger">
-                    TODO
-                  </option>
+                  <option value="NOT STARTED" class="bg-danger">TODO</option>
                 </select>
               </div>
               <div class="mb-3">

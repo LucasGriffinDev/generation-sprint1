@@ -12,11 +12,12 @@ let currentTaskIndex;
 // Event listener for select change
 select.addEventListener('change', () => {
   const selectedOption = select.options[select.selectedIndex];
-  if (selectedOption.className == 'bg-warning') {
-    select.className = selectedOption.className + ' form-select text-gray';
-  } else {
-    select.className = selectedOption.className + ' form-select text-white';
-  }
+  select.className = selectedOption.className + ' form-select';
+  // if (selectedOption.className == 'bg-warning') {
+  //   select.className = selectedOption.className + ' form-select text-gray';
+  // } else {
+  //   select.className = selectedOption.className + ' form-select text-white';
+  // }
 });
 
 // Event listener for form submission
@@ -58,41 +59,53 @@ taskForm.addEventListener('submit', function (e) {
   renderTasks(tasks);
   // close the modal
   const modal = bootstrap.Modal.getInstance(document.getElementById('myModal'));
+  saveTasks();
+
   modal.hide();
 });
 
 // Array of tasks
+let tasks;
 
-const tasks = [
-  {
-    name: 'Task 1',
-    assignedTo: 'John Doe',
-    dueDate: '2021-03-24',
-    status: 'IN PROGRESS',
-    description: 'This is a sample task.',
-  },
-  {
-    name: 'Task 2',
-    assignedTo: 'Jane Doe',
-    dueDate: '2021-01-24',
-    status: 'COMPLETED',
-    description: 'This is a sample task.',
-  },
-  {
-    name: 'Task 3',
-    assignedTo: 'Jane Doe',
-    dueDate: '2021-01-24',
-    status: 'REVIEW',
-    description: 'This is a sample task.',
-  },
-  {
-    name: 'Task 4',
-    assignedTo: 'Jane Doe',
-    dueDate: '2021-01-24',
-    status: 'NOT STARTED',
-    description: 'This is a sample task.',
-  },
-];
+if (localStorage.getItem('tasks')) {
+  tasks = JSON.parse(localStorage.getItem('tasks'));
+} else {
+  tasks = [
+    {
+      name: 'Task 1',
+      assignedTo: 'John Doe',
+      dueDate: '2021-03-24',
+      status: 'IN PROGRESS',
+      description: 'This is a sample task.',
+    },
+    {
+      name: 'Task 2',
+      assignedTo: 'Jane Doe',
+      dueDate: '2021-01-24',
+      status: 'COMPLETED',
+      description: 'This is a sample task.',
+    },
+    {
+      name: 'Task 3',
+      assignedTo: 'Jane Doe',
+      dueDate: '2021-01-24',
+      status: 'REVIEW',
+      description: 'This is a sample task.',
+    },
+    {
+      name: 'Task 4',
+      assignedTo: 'Jane Doe',
+      dueDate: '2021-01-24',
+      status: 'NOT STARTED',
+      description: 'This is a sample task.',
+    },
+  ];
+}
+// Save tasks to local storage
+
+function saveTasks() {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
 
 // Render tasks
 
@@ -115,8 +128,8 @@ const renderTasks = (tasks) => {
   tasks.forEach(({ name, assignedTo, dueDate, status, description }) => {
     taskContainer.innerHTML += `
   <div class="table-responsive">
-        <table class="table table-bordered bg-light mt-2">
-          <thead>
+    <table class="table table-bordered bg-light mt-2 rounded-lg">
+      <thead>
             <tr>
               <th class="col-1">Status</th>
               <th class="col-2">Name</th>
@@ -178,6 +191,7 @@ taskContainer.addEventListener('click', function (e) {
     if (index !== -1) {
       tasks.splice(index, 1);
     }
+
     renderTasks(tasks);
   }
   // Handle edit

@@ -23,9 +23,11 @@ nav {
 }
 
 .background {
-  background-image: url('assets/background2.jpg');
-  background-size: cover;
-  background-attachment: fixed;
+  background: rgb(6, 114, 2);
+}
+
+.table {
+  overflow: hidden;
 }
 
 .content {
