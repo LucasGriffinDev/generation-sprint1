@@ -58,41 +58,53 @@ taskForm.addEventListener('submit', function (e) {
   renderTasks(tasks);
   // close the modal
   const modal = bootstrap.Modal.getInstance(document.getElementById('myModal'));
+  saveTasks();
+
   modal.hide();
 });
 
 // Array of tasks
+let tasks;
 
-const tasks = [
-  {
-    name: 'Task 1',
-    assignedTo: 'John Doe',
-    dueDate: '2021-03-24',
-    status: 'IN PROGRESS',
-    description: 'This is a sample task.',
-  },
-  {
-    name: 'Task 2',
-    assignedTo: 'Jane Doe',
-    dueDate: '2021-01-24',
-    status: 'COMPLETED',
-    description: 'This is a sample task.',
-  },
-  {
-    name: 'Task 3',
-    assignedTo: 'Jane Doe',
-    dueDate: '2021-01-24',
-    status: 'REVIEW',
-    description: 'This is a sample task.',
-  },
-  {
-    name: 'Task 4',
-    assignedTo: 'Jane Doe',
-    dueDate: '2021-01-24',
-    status: 'NOT STARTED',
-    description: 'This is a sample task.',
-  },
-];
+if (localStorage.getItem('tasks')) {
+  tasks = JSON.parse(localStorage.getItem('tasks'));
+} else {
+  tasks = [
+    {
+      name: 'Task 1',
+      assignedTo: 'John Doe',
+      dueDate: '2021-03-24',
+      status: 'IN PROGRESS',
+      description: 'This is a sample task.',
+    },
+    {
+      name: 'Task 2',
+      assignedTo: 'Jane Doe',
+      dueDate: '2021-01-24',
+      status: 'COMPLETED',
+      description: 'This is a sample task.',
+    },
+    {
+      name: 'Task 3',
+      assignedTo: 'Jane Doe',
+      dueDate: '2021-01-24',
+      status: 'REVIEW',
+      description: 'This is a sample task.',
+    },
+    {
+      name: 'Task 4',
+      assignedTo: 'Jane Doe',
+      dueDate: '2021-01-24',
+      status: 'NOT STARTED',
+      description: 'This is a sample task.',
+    },
+  ];
+}
+// Save tasks to local storage
+
+function saveTasks() {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
 
 // Render tasks
 
@@ -178,6 +190,8 @@ taskContainer.addEventListener('click', function (e) {
     if (index !== -1) {
       tasks.splice(index, 1);
     }
+    saveTasks();
+
     renderTasks(tasks);
   }
   // Handle edit
