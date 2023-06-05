@@ -23,9 +23,7 @@ nav {
 }
 
 .background {
-  background-image: url('assets/background2.jpg');
-  background-size: cover;
-  background-attachment: fixed;
+  background-color: #800080; /* You can change this hexadecimal color value to your preferred shade of purple */
 }
 
 .content {

@@ -127,7 +127,7 @@ const renderTasks = (tasks) => {
   tasks.forEach(({ name, assignedTo, dueDate, status, description }) => {
     taskContainer.innerHTML += `
   <div class="table-responsive">
-        <table class="table table-bordered bg-light mt-2">
+        <table class="table table-bordered bg-light mt-2 rounded-lg">
           <thead>
             <tr>
               <th class="col-1">Status</th>
