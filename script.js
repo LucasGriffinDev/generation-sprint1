@@ -46,7 +46,7 @@ select.addEventListener('change', () => {
 
 //  json obect
 // rowan task
-submitTask = () => {
+submitTask = (taskNum = '') => {
   let taskItem = {
     name: document.getElementById('name').value,
     assignedTo: document.getElementById('assigned-select').value,
@@ -54,9 +54,10 @@ submitTask = () => {
     status: document.getElementById('status-select').value,
     description: document.getElementById('description').value
   }
-  // console.log(taskItem)
-  tasks.push(taskItem)
-  console.log(tasks)
+
+  if(typeof taskNum === 'number'){
+    tasks[taskNum] = taskItem
+  } else {tasks.push(taskItem)}
 }
 
 const taskJSON = {
