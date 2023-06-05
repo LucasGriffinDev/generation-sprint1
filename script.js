@@ -56,6 +56,9 @@ taskForm.addEventListener('submit', function (e) {
 
   taskForm.reset();
   renderTasks(tasks);
+  // close the modal
+  const modal = bootstrap.Modal.getInstance(document.getElementById('myModal'));
+  modal.hide();
 });
 
 // Array of tasks
@@ -65,19 +68,46 @@ const tasks = [
     name: 'Task 1',
     assignedTo: 'John Doe',
     dueDate: '2021-03-24',
-    status: 'In Progress',
+    status: 'IN PROGRESS',
     description: 'This is a sample task.',
   },
   {
     name: 'Task 2',
     assignedTo: 'Jane Doe',
     dueDate: '2021-01-24',
-    status: 'completed',
+    status: 'COMPLETED',
+    description: 'This is a sample task.',
+  },
+  {
+    name: 'Task 3',
+    assignedTo: 'Jane Doe',
+    dueDate: '2021-01-24',
+    status: 'REVIEW',
+    description: 'This is a sample task.',
+  },
+  {
+    name: 'Task 4',
+    assignedTo: 'Jane Doe',
+    dueDate: '2021-01-24',
+    status: 'NOT STARTED',
     description: 'This is a sample task.',
   },
 ];
 
 // Render tasks
+
+const getTaskStatusClass = (status) => {
+  switch (status) {
+    case 'IN PROGRESS':
+      return 'bg-warning';
+    case 'COMPLETED':
+      return 'bg-success';
+    case 'REVIEW':
+      return 'bg-primary';
+    case 'NOT STARTED':
+      return 'bg-danger';
+  }
+};
 
 const renderTasks = (tasks) => {
   taskContainer.innerHTML = '';
@@ -97,7 +127,9 @@ const renderTasks = (tasks) => {
           <tbody>
             <tr>
               <td>
-                <div class="bg-success text-white text-center rounded-2 p-1">
+                <div class="text-white text-center rounded-2 p-1 ${getTaskStatusClass(
+                  status
+                )}">
                   ${status}
                 </div>
               </td>
