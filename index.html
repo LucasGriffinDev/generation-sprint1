@@ -38,11 +38,11 @@
     </header>
 
     <!-- Main Content -->
-    <div class="container">
+    <div class="container" id="new-container">
       <!-- New Task Button -->
       <div class="text-center mt-2">
         <button
-          class="btn btn-success modal-open-button"
+          class="btn btn-success new-btn modal-open-button"
           data-bs-toggle="modal"
           data-bs-target="#myModal"
         >
@@ -131,7 +131,7 @@
                   name="status"
                   required
                 >
-                  <option value="">Select Status</option>
+                  <option value="" class="bg-white">Select Status</option>
 
                   <option value="COMPLETED" class="tra-success">
                     COMPLETED

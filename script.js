@@ -1,5 +1,6 @@
 // Selectors for the elements we'll be interacting with
 const select = document.querySelector('#status-select');
+const newContainer = document.getElementById('new-container');
 const taskContainer = document.getElementById('task-container');
 const taskForm = document.querySelector('#task-form');
 const modalNameInput = document.querySelector('#name');
@@ -174,6 +175,19 @@ const renderTasks = (tasks) => {
       `;
   });
 };
+
+newContainer.addEventListener('click', function (e) {
+  // Handle new
+  if (e.target.classList.contains('new-btn')) {
+    modalNameInput.value = '';
+    modalAssignedToInput.value = '';
+    modalDateInput.value = '';
+    modalStatusSelect.value = '';
+    modalStatusSelect.backgroundColor = '#aa0055'
+    modalStatusSelect.dispatchEvent(new Event('change'))
+    modalDescriptionInput.value = '';
+  }
+});
 
 // Event listener for task container
 taskContainer.addEventListener('click', function (e) {
