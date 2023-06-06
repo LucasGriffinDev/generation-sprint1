@@ -83,14 +83,14 @@ if (localStorage.getItem('tasks')) {
     },
     {
       name: 'Task 3',
-      assignedTo: 'Jane Doe',
+      assignedTo: 'John Smith',
       dueDate: '2020-01-24',
       status: 'REVIEW',
       description: 'This is a sample task 3.',
     },
     {
       name: 'Task 4',
-      assignedTo: 'Jane Doe',
+      assignedTo: 'Jane Smith',
       dueDate: '2021-01-24',
       status: 'NOT STARTED',
       description: 'This is a sample task 4.',
@@ -184,8 +184,8 @@ newContainer.addEventListener('click', function (e) {
     modalAssignedToInput.value = '';
     modalDateInput.value = '';
     modalStatusSelect.value = '';
-    modalStatusSelect.backgroundColor = '#aa0055'
-    modalStatusSelect.dispatchEvent(new Event('change'))
+    modalStatusSelect.backgroundColor = '#aa0055';
+    modalStatusSelect.dispatchEvent(new Event('change'));
     modalDescriptionInput.value = '';
     renderTasks(tasks);
   }
@@ -215,7 +215,7 @@ taskContainer.addEventListener('click', function (e) {
       modalAssignedToInput.value = task.assignedTo;
       modalDateInput.value = task.dueDate;
       modalStatusSelect.value = task.status;
-      modalStatusSelect.dispatchEvent(new Event('change'))
+      modalStatusSelect.dispatchEvent(new Event('change'));
       modalDescriptionInput.value = task.description;
     }
     renderTasks(tasks);
