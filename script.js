@@ -13,11 +13,6 @@ let currentTaskIndex;
 select.addEventListener('change', () => {
   const selectedOption = select.options[select.selectedIndex];
   select.className = selectedOption.className + ' form-select';
-  // if (selectedOption.className == 'bg-warning') {
-  //   select.className = selectedOption.className + ' form-select text-gray';
-  // } else {
-  //   select.className = selectedOption.className + ' form-select text-white';
-  // }
 });
 
 // Event listener for form submission
@@ -74,30 +69,30 @@ if (localStorage.getItem('tasks')) {
     {
       name: 'Task 1',
       assignedTo: 'John Doe',
-      dueDate: '2021-03-24',
+      dueDate: '2018-03-24',
       status: 'IN PROGRESS',
-      description: 'This is a sample task.',
+      description: 'This is a sample task 1.',
     },
     {
       name: 'Task 2',
       assignedTo: 'Jane Doe',
-      dueDate: '2021-01-24',
+      dueDate: '2019-01-24',
       status: 'COMPLETED',
-      description: 'This is a sample task.',
+      description: 'This is a sample task 2.',
     },
     {
       name: 'Task 3',
       assignedTo: 'Jane Doe',
-      dueDate: '2021-01-24',
+      dueDate: '2020-01-24',
       status: 'REVIEW',
-      description: 'This is a sample task.',
+      description: 'This is a sample task 3.',
     },
     {
       name: 'Task 4',
       assignedTo: 'Jane Doe',
       dueDate: '2021-01-24',
       status: 'NOT STARTED',
-      description: 'This is a sample task.',
+      description: 'This is a sample task 4.',
     },
   ];
 }
@@ -121,32 +116,6 @@ const getTaskStatusClass = (status) => {
       return 'bg-danger';
   }
 };
-
-(function () {
-  'use strict';
-  window.addEventListener(
-    'load',
-    function () {
-      // Fetch all the forms we want to apply custom Bootstrap validation styles to
-      var forms = document.getElementsByClassName('needs-validation');
-      // Loop over them and prevent submission
-      var validation = Array.prototype.filter.call(forms, function (form) {
-        form.addEventListener(
-          'submit',
-          function (event) {
-            if (form.checkValidity() === false) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-            form.classList.add('was-validated');
-          },
-          false
-        );
-      });
-    },
-    false
-  );
-})();
 
 const renderTasks = (tasks) => {
   taskContainer.innerHTML = '';
