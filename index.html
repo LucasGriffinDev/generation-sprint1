@@ -80,7 +80,11 @@
 
           <!-- Modal Body -->
           <div class="modal-body">
-            <form id="task-form">
+            <form
+              class="needs-validation"
+              id="task-form"
+              onsubmit="return false;"
+            >
               <div class="mb-3">
                 <label for="name" class="form-label"
                   >Name (min 8 characters)</label
@@ -93,6 +97,9 @@
                   required
                   minlength="8"
                 />
+                <div class="invalid-feedback">
+                  Name must be longer than 8 characters.
+                </div>
               </div>
               <div class="mb-3">
                 <label for="assigned-to" class="form-label"
