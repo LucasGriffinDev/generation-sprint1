@@ -111,6 +111,7 @@ nav {
   background: #fff;
   color: #000;
   padding: 8px 30px;
+  border-radius: 4px;
 }
 .btn-btn-success-modal-open-button {
   padding: 8px 30px;
