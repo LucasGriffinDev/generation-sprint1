@@ -6,10 +6,18 @@ sprint 2: add usability to task manager.
 
 # task card manger sprint 2 task:
 
-### added: local storage and rendering of tasks
+## added:
 
-### task delete button functionality
+- local storage and rendering of tasks
 
-### task edit button funtionality
+- task delete button functionality
 
-### task (new) functionality
+- task edit button funtionality
+
+- task (new) functionality
+
+## changes:
+
+- navbar updated
+
+* rounded edge of task added
