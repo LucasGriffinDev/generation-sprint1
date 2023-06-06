@@ -105,3 +105,19 @@ nav {
   padding: 8px 30px;
   border-radius: 4px;
 }
+
+.tra-success {
+  background-color: #28a745aa!important;
+}
+
+.tra-primary {
+  background-color: #007bffaa!important;
+}
+
+.tra-warning {
+  background-color: #ffc107aa!important;
+}
+
+.tra-danger {
+  background-color: #dc3545aa!important;
+}

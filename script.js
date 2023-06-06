@@ -199,6 +199,7 @@ taskContainer.addEventListener('click', function (e) {
       modalAssignedToInput.value = task.assignedTo;
       modalDateInput.value = task.dueDate;
       modalStatusSelect.value = task.status;
+      modalStatusSelect.dispatchEvent(new Event('change'))
       modalDescriptionInput.value = task.description;
     }
     renderTasks(tasks);
