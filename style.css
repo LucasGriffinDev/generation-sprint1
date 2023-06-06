@@ -18,6 +18,12 @@ nav {
   padding: 0.5rem 1rem;
 }
 
+.table {
+  overflow: hidden;
+  border-radius: 15px;
+  padding: 10px;
+}
+
 .container-fluid {
   font-size: 2rem;
 }
