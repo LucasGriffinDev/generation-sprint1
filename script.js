@@ -179,6 +179,7 @@ const renderTasks = (tasks) => {
 newContainer.addEventListener('click', function (e) {
   // Handle new
   if (e.target.classList.contains('new-btn')) {
+    currentTaskIndex = undefined;
     modalNameInput.value = '';
     modalAssignedToInput.value = '';
     modalDateInput.value = '';
@@ -186,6 +187,7 @@ newContainer.addEventListener('click', function (e) {
     modalStatusSelect.backgroundColor = '#aa0055'
     modalStatusSelect.dispatchEvent(new Event('change'))
     modalDescriptionInput.value = '';
+    renderTasks(tasks);
   }
 });
 
