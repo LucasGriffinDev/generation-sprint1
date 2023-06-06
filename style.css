@@ -18,6 +18,20 @@ nav {
   padding: 0.5rem 1rem;
 }
 
+.tra-warning {
+  background-color: #ffc107aa !important;
+}
+.tra-primary {
+  background-color: #007bffaa !important;
+}
+.tra-success {
+  background-color: #28a745aa !important;
+}
+
+.tra-danger {
+  background-color: #dc3545aa !important;
+}
+
 .table {
   overflow: hidden;
   border-radius: 15px;
