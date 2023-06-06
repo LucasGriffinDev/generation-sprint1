@@ -122,56 +122,55 @@ const renderTasks = (tasks) => {
 
   tasks.forEach(({ name, assignedTo, dueDate, status, description }) => {
     taskContainer.innerHTML += `
-  <div class="table-responsive">
-    <table class="table table-bordered bg-light mt-2 rounded-lg">
-      <thead>
-            <tr>
-              <th class="col-1">Status</th>
-              <th class="col-2">Name</th>
-              <th class="col-2">Assigned to</th>
-              <th class="col-1">Due date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="text-white text-center rounded-2 p-1 ${getTaskStatusClass(
-                  status
-                )}">
-                  ${status}
-                </div>
-              </td>
-              <td>${name}</td>
-              <td>
-                <div>${assignedTo}</div>
-              </td>
-              <td>
-                <p>${dueDate}</p>
-              </td>
-            </tr>
-            <tr>
-              <td class="fw-bold">
-                Description:
+    <div class="table-responsive">
+  <table class="table table-bordered bg-light mt-2 rounded-lg">
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th>Name</th>
+        <th>Assigned to</th>
+        <th>Due date</th>
+        <th></th> <!-- Empty column for buttons on small screens -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="text-white text-center rounded-2 p-1 ${getTaskStatusClass(
+            status
+          )}">
+            ${status}
+          </div>
+        </td>
+        <td class="text-size-lg">${name}</td>
+        <td>
+          <div>${assignedTo}</div>
+        </td>
+        <td>
+          <p>${dueDate}</p>
+        </td>
+        <td class="text-end">
+          <button class="btn btn-secondary m-2 edit-btn modal-open-button" data-bs-toggle="modal" data-bs-target="#myModal" data-task-name="${name}">
+            Edit
+          </button>
+          <button class="btn btn-warning delete-btn" data-task-name="${name}">Delete</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5" class="fw-bold">
+          Description:
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5" class="description text-size-lg">
+          <span>${description}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-              </td>
-              <td colspan="2" class="description">
-                <span>${description}</span>
-              </td>
-              <td colspan="1">
-              <button class="btn btn-secondary float-end mx-2 edit-btn modal-open-button"
-              data-bs-toggle="modal"
-              data-bs-target="#myModal"
-              data-task-name="${name}" <!-- make sure this attribute is correctly assigned -->
-            Edit</button>
-
-                  
-                </button>
-                <button class="btn btn-warning float-end delete-btn" data-task-name="${name}">Delete</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+  
       `;
   });
 };

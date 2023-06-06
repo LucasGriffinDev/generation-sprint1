@@ -18,6 +18,10 @@ nav {
   padding: 0.5rem 1rem;
 }
 
+.container-fluid {
+  font-size: 2rem;
+}
+
 .logo {
   width: 140px;
 }
