@@ -223,3 +223,135 @@ taskContainer.addEventListener('click', function (e) {
 });
 
 renderTasks(tasks);
+
+class TaskManager {
+  constructor () {
+    this._tasks = []
+  }
+  loadTasks() {
+      this._tasks = [
+          {
+            name: 'Task 1',
+            assignedTo: 'John Doe',
+            dueDate: '2018-03-24',
+            status: 'IN PROGRESS',
+            description: 'This is a sample task 1.',
+          },
+          {
+            name: 'Task 2',
+            assignedTo: 'Jane Doe',
+            dueDate: '2019-01-24',
+            status: 'COMPLETED',
+            description: 'This is a sample task 2.',
+          },
+          {
+            name: 'Task 3',
+            assignedTo: 'John Smith',
+            dueDate: '2020-01-24',
+            status: 'REVIEW',
+            description: 'This is a sample task 3.',
+          },
+          {
+            name: 'Task 4',
+            assignedTo: 'Jane Smith',
+            dueDate: '2021-01-24',
+            status: 'NOT STARTED',
+            description: 'This is a sample task 4.',
+          },
+        ];
+  //   if (localStorage.getItem('tasks')) {
+  //     this._tasks = JSON.parse(localStorage.getItem('tasks'));
+  //   }
+  }
+  saveTasks() {
+  //   localStorage.setItem('tasks', JSON.stringify(this._tasks));
+  }
+  addTask(name, assigned, date, status, description) {
+      let task = new Task(name, assigned, date, status, description)
+      this._tasks.push(task)
+  }
+  editTask(index, task) {}
+  deleteTask(index) {
+      if (index !== -1) {
+          this._tasks.splice(index, 1);
+        }
+  }
+  getAllTasks() {
+      return this._tasks
+  }
+  getTask(index) {
+      return this._tasks[index]
+  }
+  setStatus(index, status) {
+      // this._tasks[index].status = status;
+    if(typeof index === 'number' && index < this._tasks.length && ['IN PROGRESS', 'COMPLETED', 'REVIEW', 'NOT STARTED'].includes(status)){
+      this._tasks[index].status = status
+    }
+  }
+}
+
+class Task {
+  constructor (name, assigned, date, status, description) {
+    this._name = name;
+    this._assigned = assigned;
+    this._date = date;
+    this._status = status;
+    this._description = description;
+  }
+  get name(){
+      return this._name;
+  }
+  get assigned(){
+      return this._assigned;
+  }
+  get date(){
+      return this._date;
+  }
+  get status(){
+      return this._status;
+  }
+  get description(){
+      return this._description;
+  }
+  get item(){
+    return {
+      name: this._name,
+      assigned: this._assigned,
+      date: this._date,
+      status: this._status,
+      description: this._description
+    };
+  }
+  set name(name){
+    if(typeof name === 'string'){
+      this._name = name;
+    }
+  }
+  set assigned(assigned){
+    if(typeof assigned === 'string'){
+      this._assigned = assigned;
+    }
+  }
+  set date(date){
+    if(date.length == 10 && Date.parse(date)){
+      this._date = date;
+    }
+  }
+  set status(status){
+    if(['IN PROGRESS', 'COMPLETED', 'REVIEW', 'NOT STARTED'].includes(status)){
+      this._status = status
+    }
+  }
+  set description(description){
+    if(typeof description === 'string'){
+      this._description = description;
+    }
+  }
+  set item(item){
+      this._name = item.name;
+      this._assigned = item.assigned;
+      this._date = item.date;
+      this._status = item.status;
+      this._description = item.description;
+    }
+}
