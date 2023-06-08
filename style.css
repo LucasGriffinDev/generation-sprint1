@@ -1,7 +1,7 @@
-* {
+style.css * {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Poppins', sans-serif;
   box-sizing: content-box;
 }
 
@@ -160,4 +160,186 @@ nav {
 .btn-btn-warning-float-end-delete-btn:hover {
   background: rgb(197, 48, 48);
   transition: 0.5s;
+}
+.btn-btn-success-me-2 {
+  font-family: 'Roboto', sans-serif;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  background: #55c927;
+  width: 160px;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-animation-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.btn-btn-success-me-2:hover,
+.btn-btn-success-me-2:focus,
+.btn-btn-success-me-2:active {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.btn-btn-success-new-btn-modal-open-button {
+  font-family: 'Roboto', sans-serif;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  background: #55c927;
+  width: 160px;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-animation-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.btn-btn-success-new-btn-modal-open-button:hover,
+.btn-btn-success-new-btn-modal-open-button:focus,
+.btn-btn-success-new-btn-modal-open-button:active {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.btn-btn-success {
+  font-family: 'Roboto', sans-serif;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  background: #55c927;
+  width: 160px;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-animation-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.btn-btn-success:hover,
+.btn-btn-success:focus,
+.btn-btn-success:active {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.btn-btn-secondary-m-2-edit-btn-modal-open-button {
+  font-family: 'Roboto', sans-serif;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  background: #55c927;
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-animation-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.btn-btn-secondary-m-2-edit-btn-modal-open-button:hover,
+.btn-btn-secondary-m-2-edit-btn-modal-open-button:focus,
+.btn-btn-secondary-m-2-edit-btn-modal-open-button:active {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.btn-btn-warning-delete-btn {
+  font-family: 'Roboto', sans-serif;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  background: #da3c3c;
+  width: 90px;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-animation-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.btn-btn-warning-delete-btn:hover,
+.btn-btn-warning-delete-btn:focus,
+.btn-btn-warning-delete-btn:active {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.btn-btn-secondary {
+  font-family: 'Roboto', sans-serif;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  background: #da3c3c;
+  width: 90px;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-animation-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.btn-btn-secondary:hover,
+.btn-btn-secondary:focus,
+.btn-btn-secondary:active {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.btn-btn-primary {
+  font-family: 'Roboto', sans-serif;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  background: #3eb2e0;
+  width: 90px;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-animation-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.btn-btn-primary:hover,
+.btn-btn-primary:focus,
+.btn-btn-primary:active {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
