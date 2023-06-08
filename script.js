@@ -158,7 +158,7 @@ taskForm.addEventListener('submit', function (e) {
       assigned: assignedTo,
       date: date,
       status: statusSelected,
-      description, description
+      description: description
     };
 
     // Clear the currentTaskIndex
