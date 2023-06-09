@@ -25,6 +25,12 @@ class TaskManager {
           this._tasks.splice(index, 1);
         }
   }
+  markTaskDone(index) {
+    if (index !== -1) {
+      this.setStatus(index, 'COMPLETED');
+      this.getTask(index)._taskStatusClass = 'bg-success';
+    }
+  }
   getAllTasks() {
       return this._tasks
   }
@@ -34,7 +40,14 @@ class TaskManager {
   setStatus(index, status) {
       // this._tasks[index].status = status;
     if(typeof index === 'number' && index < this._tasks.length && ['IN PROGRESS', 'COMPLETED', 'REVIEW', 'NOT STARTED'].includes(status)){
-      this._tasks[index].status = status
+      this.getTask(index).status = status
+    }
+  }
+  static markDoneCheck(i, status) {
+    if(status == 'COMPLETED'){
+      return ``
+    } else {
+      return `<button class="btn btn-info markdone-btn" data-task-name="${taskList.getAllTasks()[i].name}" data-task-id=${i}>Mark Done</button>`
     }
   }
 }
@@ -115,6 +128,7 @@ class Task {
       this._date = item.date;
       this._status = item.status;
       this._description = item.description;
+      this._taskStatusClass = Task.taskStatusClass(this._status);
     }
 }
 
@@ -179,7 +193,6 @@ taskForm.addEventListener('submit', function (e) {
 
 
 const renderTasks = (taskList) => {
-  console.log('list', taskList.getAllTasks()[0])
   taskContainer.innerHTML = '';
 
   for(let i in taskList.getAllTasks()){
@@ -210,10 +223,11 @@ const renderTasks = (taskList) => {
           <p>${taskList.getAllTasks()[i].date}</p>
         </td>
         <td class="text-end">
-          <button class="btn btn-secondary m-2 edit-btn modal-open-button" data-bs-toggle="modal" data-bs-target="#myModal" data-task-name="${taskList.getAllTasks()[i].name}" data-task-id="${i}">
+          ${TaskManager.markDoneCheck(i, taskList.getAllTasks()[i].status)}
+          <button class="btn btn-secondary m-2 edit-btn modal-open-button" data-bs-toggle="modal" data-bs-target="#myModal" data-task-name="${taskList.getAllTasks()[i].name}" data-task-id=${i}>
             Edit
           </button>
-          <button class="btn btn-warning delete-btn" data-task-name="${taskList.getAllTasks()[i].name}" data-task-id="${i}">Delete</button>
+          <button class="btn btn-warning delete-btn" data-task-name="${taskList.getAllTasks()[i].name}" data-task-id=${i}>Delete</button>
         </td>
       </tr>
       <tr>
@@ -280,6 +294,13 @@ taskContainer.addEventListener('click', function (e) {
       modalStatusSelect.dispatchEvent(new Event('change'));
       modalDescriptionInput.value = task.description;
     }
+    renderTasks(taskList);
+  }
+  // Handle mark done
+  if (e.target.classList.contains('markdone-btn')) {
+    let index = Number(e.target.dataset.taskId);
+    taskList.markTaskDone(index);
+    taskList.saveTasks();
     renderTasks(taskList);
   }
 });
