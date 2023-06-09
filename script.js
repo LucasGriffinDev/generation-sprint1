@@ -1,3 +1,142 @@
+class TaskManager {
+  constructor () {
+    this._tasks = []
+  }
+  loadTasks() {
+    if (localStorage.getItem('tasks')) {
+      let item = JSON.parse(localStorage.getItem('tasks'));
+      for(let i in item){
+        console.log(item[i])
+        this.addTask(item[i]._name, item[i]._assigned, item[i]._date, item[i]._status, item[i]._description)
+      }
+      console.log(this._tasks)
+    }
+  }
+  saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(this._tasks));
+  }
+  addTask(name, assigned, date, status, description) {
+      let task = new Task(name, assigned, date, status, description)
+      this._tasks.push(task)
+  }
+  editTask(index, task) {}
+  deleteTask(index) {
+      if (index !== -1) {
+          this._tasks.splice(index, 1);
+        }
+  }
+  markTaskDone(index) {
+    if (index !== -1) {
+      this.setStatus(index, 'COMPLETED');
+      this.getTask(index)._taskStatusClass = 'bg-success';
+    }
+  }
+  getAllTasks() {
+      return this._tasks
+  }
+  getTask(index) {
+      return this._tasks[index]
+  }
+  setStatus(index, status) {
+      // this._tasks[index].status = status;
+    if(typeof index === 'number' && index < this._tasks.length && ['IN PROGRESS', 'COMPLETED', 'REVIEW', 'NOT STARTED'].includes(status)){
+      this.getTask(index).status = status
+    }
+  }
+  static markDoneCheck(i, status) {
+    if(status == 'COMPLETED'){
+      return ``
+    } else {
+      return `<button class="btn btn-info markdone-btn" data-task-name="${taskList.getAllTasks()[i].name}" data-task-id=${i}>Mark Done</button>`
+    }
+  }
+}
+
+class Task {
+  constructor (name, assigned, date, status, description) {
+    this._name = name;
+    this._assigned = assigned;
+    this._date = date;
+    this._status = status;
+    this._description = description;
+    this._taskStatusClass = Task.taskStatusClass(status)
+  }
+  get name(){
+      return this._name;
+  }
+  get assigned(){
+      return this._assigned;
+  }
+  get date(){
+      return this._date;
+  }
+  get status(){
+      return this._status;
+  }
+  get description(){
+      return this._description;
+  }
+  get item(){
+    return {
+      name: this._name,
+      assigned: this._assigned,
+      date: this._date,
+      status: this._status,
+      description: this._description
+    };
+  }
+  static taskStatusClass(status) {
+    switch (status) {
+      case 'IN PROGRESS':
+        return 'bg-warning';
+      case 'COMPLETED':
+        return 'bg-success';
+      case 'REVIEW':
+        return 'bg-primary';
+      case 'NOT STARTED':
+        return 'bg-danger';
+    }
+  }
+  set name(name){
+    if(typeof name === 'string'){
+      this._name = name;
+    }
+  }
+  set assigned(assigned){
+    if(typeof assigned === 'string'){
+      this._assigned = assigned;
+    }
+  }
+  set date(date){
+    if(date.length == 10 && Date.parse(date)){
+      this._date = date;
+    }
+  }
+  set status(status){
+    if(['IN PROGRESS', 'COMPLETED', 'REVIEW', 'NOT STARTED'].includes(status)){
+      this._status = status
+    }
+  }
+  set description(description){
+    if(typeof description === 'string'){
+      this._description = description;
+    }
+  }
+  set item(item){
+      this._name = item.name;
+      this._assigned = item.assigned;
+      this._date = item.date;
+      this._status = item.status;
+      this._description = item.description;
+      this._taskStatusClass = Task.taskStatusClass(this._status);
+    }
+}
+
+// Task class creation
+const taskList = new TaskManager();
+taskList.loadTasks();
+
+
 // Selectors for the elements we'll be interacting with
 const select = document.querySelector('#status-select');
 const newContainer = document.getElementById('new-container');
@@ -28,100 +167,35 @@ taskForm.addEventListener('submit', function (e) {
 
   if (currentTaskIndex !== undefined) {
     // If a task is being edited, update it
-    tasks[currentTaskIndex] = {
+    taskList.getTask(currentTaskIndex).item = {
       name: name,
-      assignedTo: assignedTo,
-      dueDate: date,
+      assigned: assignedTo,
+      date: date,
       status: statusSelected,
-      description: description,
+      description: description
     };
 
     // Clear the currentTaskIndex
     currentTaskIndex = undefined;
   } else {
     // If no task is being edited, create a new one
-    let newTask = {
-      name: name,
-      assignedTo: assignedTo,
-      dueDate: date,
-      status: statusSelected,
-      description: description,
-    };
-
-    tasks.push(newTask);
+    taskList.addTask(name, assignedTo, date, statusSelected, description);
   }
 
   taskForm.reset();
-  renderTasks(tasks);
+  renderTasks(taskList);
   // close the modal
   const modal = bootstrap.Modal.getInstance(document.getElementById('myModal'));
-  saveTasks();
+  taskList.saveTasks();
 
   modal.hide();
 });
 
-// Array of tasks
-let tasks;
 
-if (localStorage.getItem('tasks')) {
-  tasks = JSON.parse(localStorage.getItem('tasks'));
-} else {
-  tasks = [
-    {
-      name: 'Task 1',
-      assignedTo: 'John Doe',
-      dueDate: '2018-03-24',
-      status: 'IN PROGRESS',
-      description: 'This is a sample task 1.',
-    },
-    {
-      name: 'Task 2',
-      assignedTo: 'Jane Doe',
-      dueDate: '2019-01-24',
-      status: 'COMPLETED',
-      description: 'This is a sample task 2.',
-    },
-    {
-      name: 'Task 3',
-      assignedTo: 'John Smith',
-      dueDate: '2020-01-24',
-      status: 'REVIEW',
-      description: 'This is a sample task 3.',
-    },
-    {
-      name: 'Task 4',
-      assignedTo: 'Jane Smith',
-      dueDate: '2021-01-24',
-      status: 'NOT STARTED',
-      description: 'This is a sample task 4.',
-    },
-  ];
-}
-// Save tasks to local storage
-
-function saveTasks() {
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-}
-
-// Render tasks
-
-const getTaskStatusClass = (status) => {
-  switch (status) {
-    case 'IN PROGRESS':
-      return 'bg-warning';
-    case 'COMPLETED':
-      return 'bg-success';
-    case 'REVIEW':
-      return 'bg-primary';
-    case 'NOT STARTED':
-      return 'bg-danger';
-  }
-};
-
-const renderTasks = (tasks) => {
+const renderTasks = (taskList) => {
   taskContainer.innerHTML = '';
 
-  tasks.forEach(({ name, assignedTo, dueDate, status, description }) => {
+  for(let i in taskList.getAllTasks()){
     taskContainer.innerHTML += `
     <div class="table-responsive">
   <table class="table table-bordered bg-light mt-2 rounded-lg">
@@ -137,24 +211,23 @@ const renderTasks = (tasks) => {
     <tbody>
       <tr>
         <td>
-          <div class="text-white text-center rounded-2 p-1 ${getTaskStatusClass(
-            status
-          )}">
-            ${status}
+          <div class="text-white text-center rounded-2 p-1 ${taskList.getAllTasks()[i]._taskStatusClass}">
+            ${taskList.getAllTasks()[i].status}
           </div>
         </td>
-        <td class="text-size-lg">${name}</td>
+        <td class="text-size-lg">${taskList.getAllTasks()[i].name}</td>
         <td>
-          <div>${assignedTo}</div>
+          <div>${taskList.getAllTasks()[i].assigned}</div>
         </td>
         <td>
-          <p>${dueDate}</p>
+          <p>${taskList.getAllTasks()[i].date}</p>
         </td>
         <td class="text-end">
-          <button class="btn btn-secondary m-2 edit-btn modal-open-button" data-bs-toggle="modal" data-bs-target="#myModal" data-task-name="${name}">
+          ${TaskManager.markDoneCheck(i, taskList.getAllTasks()[i].status)}
+          <button class="btn btn-secondary m-2 edit-btn modal-open-button" data-bs-toggle="modal" data-bs-target="#myModal" data-task-name="${taskList.getAllTasks()[i].name}" data-task-id=${i}>
             Edit
           </button>
-          <button class="btn btn-warning delete-btn" data-task-name="${name}">Delete</button>
+          <button class="btn btn-warning delete-btn" data-task-name="${taskList.getAllTasks()[i].name}" data-task-id=${i}>Delete</button>
         </td>
       </tr>
       <tr>
@@ -164,7 +237,7 @@ const renderTasks = (tasks) => {
       </tr>
       <tr>
         <td colspan="5" class="description text-size-lg">
-          <span>${description}</span>
+          <span>${taskList.getAllTasks()[i].description}</span>
         </td>
       </tr>
     </tbody>
@@ -173,7 +246,7 @@ const renderTasks = (tasks) => {
 
   
       `;
-  });
+  };
 };
 
 newContainer.addEventListener('click', function (e) {
@@ -187,7 +260,7 @@ newContainer.addEventListener('click', function (e) {
     modalStatusSelect.backgroundColor = '#aa0055';
     modalStatusSelect.dispatchEvent(new Event('change'));
     modalDescriptionInput.value = '';
-    renderTasks(tasks);
+    renderTasks(taskList);
   }
 });
 
@@ -195,31 +268,42 @@ newContainer.addEventListener('click', function (e) {
 taskContainer.addEventListener('click', function (e) {
   // Handle delete
   if (e.target.classList.contains('delete-btn')) {
-    let taskName = e.target.dataset.taskName;
+    // let taskName = e.target.dataset.taskName;
+    let index = e.target.dataset.taskId;
 
-    let index = tasks.findIndex((task) => task.name === taskName);
-    if (index !== -1) {
-      tasks.splice(index, 1);
-    }
-    saveTasks();
-    renderTasks(tasks);
+    // let index = taskList.findIndex((task) => task.name === taskName);
+    taskList.deleteTask(index);
+    taskList.saveTasks();
+    renderTasks(taskList);
   }
   // Handle edit
   if (e.target.classList.contains('edit-btn')) {
-    const taskName = e.target.dataset.taskName;
-    currentTaskIndex = tasks.findIndex((task) => task.name === taskName);
+    // const taskName = e.target.dataset.taskName;
+    // currentTaskIndex = taskList.findIndex((task) => task.name === taskName);
+    currentTaskIndex = e.target.dataset.taskId;
 
-    let task = tasks.find((task) => task.name === taskName);
+    // let task = taskList.find((task) => task.name === taskName);
+    let task = taskList.getTask(currentTaskIndex);
+    console.log('cTI', currentTaskIndex)
+    console.log('task', task)
     if (task) {
       modalNameInput.value = task.name;
-      modalAssignedToInput.value = task.assignedTo;
-      modalDateInput.value = task.dueDate;
+      modalAssignedToInput.value = task.assigned;
+      modalDateInput.value = task.date;
       modalStatusSelect.value = task.status;
       modalStatusSelect.dispatchEvent(new Event('change'));
       modalDescriptionInput.value = task.description;
     }
-    renderTasks(tasks);
+    renderTasks(taskList);
+  }
+  // Handle mark done
+  if (e.target.classList.contains('markdone-btn')) {
+    let index = Number(e.target.dataset.taskId);
+    taskList.markTaskDone(index);
+    taskList.saveTasks();
+    renderTasks(taskList);
   }
 });
 
-renderTasks(tasks);
+renderTasks(taskList);
+
